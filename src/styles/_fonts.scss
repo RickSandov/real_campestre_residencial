@@ -8,22 +8,59 @@
 // }
 
 @font-face {
-    font-family: 'gotham_blackregular';
-    src: url('/fonts/gotham-black-webfont.woff2') format('woff2'),
-        url('/fonts/gotham-black-webfont.woff') format('woff');
+    font-family: 'Cinzel Decorative';
+    src: url('/fonts/cinzeldecorative-regular-webfont.woff2') format('woff2'),
+         url('/fonts/cinzeldecorative-regular-webfont.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-extralight-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-extralight-webfont.woff') format('woff');
+    font-weight: 200;
     font-style: normal;
 
 }
 
-
 @font-face {
-    font-family: 'badhair_italicitalic';
-    src: url('/fonts/badhair-webfont.woff2') format('woff2'),
-        url('/fonts/badhair-webfont.woff') format('woff');
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('/fonts/Montserrat-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-SemiBold.woff2') format('woff2'),
+        url('/fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('/fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('/fonts/Montserrat-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 

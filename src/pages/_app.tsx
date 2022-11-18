@@ -7,16 +7,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@200,400;600;700&family=Poppins:wght@200&display=swap;" rel="stylesheet" />
+        <title>Real Campestre Residencial</title>
+        <meta name="description" content="Construye la casa de tus sueños en la zona con mayor plusvalía de la Durango, Durango." />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Component {...pageProps} />
     </>
   )
 }
-
-
-// isr 1%
-
-// actividad empresarial ingresos - gastos 
