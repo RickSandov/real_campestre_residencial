@@ -66,7 +66,7 @@ export const Galleries = () => {
                                 <h4>
                                     {
                                         split ? name.split('.').map(span => (
-                                            <span>{span}</span>
+                                            <span key={span} >{span}</span>
                                         )) : name
                                     }
                                 </h4>
