@@ -1,0 +1,27 @@
+@use"../../styles/colors";
+@use"../../styles/abstracts/variables";
+
+.title {
+    text-transform: lowercase;
+    
+    span {
+        display: block;
+        color: colors.$text-dark;
+        font-family: variables.$font;
+        font-weight: 200;
+        font-size: 55.5%;
+    }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: right;
+    }
+    
+}

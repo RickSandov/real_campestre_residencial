@@ -1,0 +1,8 @@
+@use"./abstracts/variables";
+
+.toast {
+    font-size: 2rem;
+    font-family: variables.$font;
+    font-weight: 700;
+    text-align: center;
+}

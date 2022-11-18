@@ -1,0 +1,74 @@
+@use"../../../../styles/colors";
+@use"../../../../styles/abstracts/variables";
+@use"../../../../styles/abstracts/mixins";
+.container {
+    width: 90%;
+    margin: 4rem auto;
+
+    h2 {
+        margin-left: 3rem;
+        position: relative;
+        margin-bottom: 4rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            left: -3rem;
+            top: 0;
+            width: .8rem;
+            background-color: colors.$bc;
+        }
+    }
+}
+
+.galleries {
+    width: 100%;
+    border-radius: variables.$div-border-radius;   
+    .slide {
+        overflow: hidden;
+        aspect-ratio: 1/1;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(colors.$primary-dark, 40%);
+        }
+        .image {
+            transition: scale .3s ease-in-out,
+            transform .2s .1s ease-in-out;
+            @include mixins.nextImage;
+            height: 100%;
+            width: 100%;
+        }
+        @include mixins.hover {
+            .image {
+                scale: 1.2;
+                // transform: rotate(5deg);   
+            }
+        }
+        h4 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            color: white;
+            font-size: 4rem;
+            font-weight: 400;
+            transform: translate(-50%);
+            text-align: center;
+            line-height: .3;
+            
+            span {
+                display: block;
+                font-size: inherit;
+            }
+            
+            &:has(span){
+                top: 45%;
+                line-height: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+@use"../../../../styles/abstracts/mixins";
+@use"../../../../styles/abstracts/variables";
+@use"../../../../styles/colors";
+
+
+.about {
+    width: 170rem;
+    max-width: 95%;
+    min-height: 43rem;
+    // background-color: red;
+    margin: 4rem auto;
+    border-radius: variables.$div-border-radius;
+    padding: 4rem 8rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+
+    // background-image: url('/assets/about.png');
+    // background-position: top left;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    // position: relative;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     inset: 0;
+    //     z-index: 0;
+    //     background-color: rgba(colors.$primary-dark, .85);
+    // }
+
+    @include mixins.respond(phone) {
+        align-items: center;
+        padding: 4rem;
+        min-height: 50rem;
+    }
+
+    h1,p,.button {
+        z-index: 2;
+        position: relative;
+    }
+
+    h1 {
+        font-family: variables.$font;
+        font-weight: 600;
+        color: white;
+    }
+
+    p {
+        color: white;
+        max-width: 35rem;
+    }
+
+    .button {
+        @include mixins.button(white, colors.$primary, white);
+    }
+
+    .bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        .wrapper {
+            @include mixins.nextImage;
+            height: 100%;
+            width: 100%;
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: colors.$primary-dark;
+                background: linear-gradient(90deg, colors.$primary-dark 8%, transparent 100%);
+            }
+        }
+    }
+
+}
+

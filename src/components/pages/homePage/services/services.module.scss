@@ -1,0 +1,79 @@
+@use"../../../../styles/abstracts/mixins";
+@use"../../../../styles/colors";
+
+.container {
+    position: relative;
+    padding: 8rem 0;
+    overflow: hidden;
+
+    .bg {
+        position: absolute;
+        right: -15%;
+        z-index: -1;
+        top: 0;
+        // transform: translateY(-50%);
+    height: 90%;
+    aspect-ratio: 1/1;
+    }
+
+    h2 {
+        margin: 0 auto 6rem auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        svg {
+            display: block;
+            margin: 0;
+            width: 67rem;
+            max-width: 90%;
+        }
+    }
+}
+
+.services {
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 5rem;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    flex: 0 1 40rem;
+    text-align: center;
+
+    .image {
+        @include mixins.nextImage;
+        height: 9rem;
+        width: 9rem;
+    }
+    hr {
+        width: 90%;
+        height: .4rem;
+        border: none;
+        outline: none;
+        background-color: colors.$primary;
+        margin: 1.5rem 0 2.5rem 0;
+    }
+    h3 {
+        text-transform: capitalize;
+        max-width: 90%;
+        margin-bottom: .5rem;
+    }
+    p {
+        text-align: center;
+        max-width: 75%;
+        span {
+            display: block;
+        }
+    }
+}

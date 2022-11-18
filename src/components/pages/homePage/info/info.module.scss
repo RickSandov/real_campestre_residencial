@@ -1,0 +1,57 @@
+@use"../../../../styles/abstracts/mixins";
+@use"../../../../styles/abstracts/variables";
+
+.container {
+    width: 90%;
+    margin: 6rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+
+    .info {
+        flex: 1 1;
+        width: 10rem;
+        max-width: 100%;
+
+        ul, li {
+            list-style: none;
+        }
+
+        ul {
+            margin-top: 3rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            strong {
+                font-size: 166.66%
+            }
+        }
+    }
+
+    aside {
+        flex: 1;
+        height: 40rem;
+        border-radius: variables.$div-border-radius;
+        overflow: hidden;
+        min-width: 30rem;
+        width: 70rem;
+        max-width: 100%;
+
+        @include mixins.respond(tab-port) {
+            display: block;
+        }
+
+        .image {
+            height: 100%;
+            width: 100%;
+            @include mixins.nextImage;
+        }
+    }
+}
+

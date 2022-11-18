@@ -1,0 +1,111 @@
+@use "./colors";
+@use "./abstracts/mixins";
+@use "./abstracts/variables";
+@import 'fonts';
+
+html,
+body {
+    --swiper-theme-color: white;
+    // // padding: 0;
+    // // margin: 0;
+    // // font-family: 'Questrial';
+    --swiper-pagination-color: #fff;
+
+    font-size: 62.5%; // 1rem == 10px
+
+    @include mixins.respond(tab-port) {
+        font-size: 50%; // 1rem == 8px
+    }
+
+    @include mixins.respond(tab-land) {
+        font-size: 56.25%; // 1rem == 9px
+    }
+
+    @include mixins.respond(big-desk) {
+        font-size: 75%; // 1rem == 12px, 12/16
+    }
+
+    font-family: variables.$font;
+    color: colors.$text-dark;
+    scroll-behavior: smooth;
+    // @include mixins.scrollBar(5px);
+}
+
+// body {
+//     overflow-y: var(--overflow);
+//     overflow-x: hidden;
+//     position: relative;
+// }
+
+// html {
+//     box-sizing: border-box;
+//     padding: 0;
+//     margin: 0;
+// }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    // color: blue;
+    font-family: variables.$font-titles;
+    color: colors.$black;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: variables.$font-size-titles;
+    font-family: variables.$font;
+    color: colors.$primary;
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-family: variables.$font-titles;
+}
+
+p, label {
+    font-size: 1.8rem;
+    font-family: variables.$font;
+}
+
+a {
+    // font-size: 1.6rem;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// svg {
+//     color: white;
+// }
+
+button {
+    border: none;
+    font-family: inherit;
+}
