@@ -76,7 +76,7 @@ h3 {
     font-family: variables.$font-titles;
 }
 
-p, label {
+p, label, a {
     font-size: 1.8rem;
     font-family: variables.$font;
 }
@@ -99,6 +99,12 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
 }
 
 // svg {

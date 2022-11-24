@@ -3,8 +3,10 @@ import { About } from "./about/About";
 import { Services } from "./services/Services";
 import { Galleries } from "./galleries/Galleries";
 import { Info } from "./info/Info";
-import { DividerLogo } from "components";
 import { VisitUs } from "./visitUs/VisitUs";
+import { FabIcons } from "components/fabs";
+import { DividerLogo, Footer } from "components";
+import { GoogleComments } from "./comments/GoogleComments";
 
 export const HomePage = () => {
   return (
@@ -16,6 +18,10 @@ export const HomePage = () => {
       <Info />
       <DividerLogo />
       <VisitUs />
+      <GoogleComments />
+      <Footer />
+
+      <FabIcons />
     </>
   );
 };
