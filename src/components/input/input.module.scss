@@ -33,7 +33,7 @@
 
 
     &:focus+label {
-        font-size: 16px;
+        font-size: 1.6rem;
         top: -12%;
     }
 
@@ -45,7 +45,7 @@
         @include mixins.input(active);
 
         &+label {
-            font-size: 1.4;
+            font-size: 1.4rem;
             top: -15%;
             color: colors.$primary;
         }
