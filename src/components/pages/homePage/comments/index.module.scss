@@ -1,7 +1,12 @@
 @use"../../../../styles/abstracts/mixins";
+
+.container {
+    position: relative;
+}
+
 .reviews {
+    
     &-box {
-        position: relative;
         display: flex;
         flex-direction: column;
         overflow-x: scroll;
@@ -147,16 +152,18 @@
         display: grid;
         place-items: center;
         position: absolute;
-        bottom: 1rem;
+        bottom: 3rem;
         left: 50%;
         transform: translateX(-50%);
+        font-size: 1rem;
 
         & span {
-            font-size: 1.3rem;
+            font-size: 1rem;
             text-align: center;
         }
-
+        
         a {
+            font-size: 1.2rem;
             color: inherit;
         }
     }

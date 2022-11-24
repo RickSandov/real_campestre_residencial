@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import ReviewsSlider from './ReviewsSlide';
 
+import styles from './index.module.scss'
+
 export interface ReviewType {
     author_name: string,
     author_url: string,
@@ -45,6 +47,7 @@ export const GoogleComments = () => {
         <>
             <section
                 id="reviews"
+                className={styles.container}
             >
                 <ReviewsSlider reviews={data.reviews} rating={data.rating} totalRatings={data.totalRatings} />
             </section>
