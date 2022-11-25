@@ -31,7 +31,7 @@ export default function ReviewsSlider({ reviews, rating, totalRatings }: Data) {
 
             <div className={styles["reviews-bottom"]}>
                 <span>
-                    <strong>Google</strong> rating: <u>{rating} de 5</u>, basado en <a href="https://g.page/OdontologiaFamiliar?share" target="_blank" rel="noreferrer" ><strong>{totalRatings} valoraciones</strong></a>
+                    <strong>Google</strong> rating: <u>{rating} de 5</u>, basado en <a href="https://goo.gl/maps/nEbeRpDbVTDDwk4Y8" target="_blank" rel="noreferrer" ><strong>{totalRatings} valoraciones</strong></a>
                 </span>
             </div>
 
