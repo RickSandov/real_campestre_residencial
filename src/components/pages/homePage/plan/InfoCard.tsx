@@ -44,10 +44,6 @@ export const InfoCard = () => {
                                 text={String(num)}
                             />
                             <Item
-                                title='Área'
-                                text={String(area) + 'm²'}
-                            />
-                            <Item
                                 title='Tipo de Terreno'
                                 text={String(type)}
                                 className={styles[getKeyByValue(type)]}
@@ -55,6 +51,10 @@ export const InfoCard = () => {
                             {
                                 !sold && (
                                     <>
+                                        <Item
+                                            title='Área'
+                                            text={String(area) + 'm²'}
+                                        />
                                         <Item
                                             title='Precio'
                                             text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
