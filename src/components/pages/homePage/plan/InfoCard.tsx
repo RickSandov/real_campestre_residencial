@@ -45,7 +45,7 @@ export const InfoCard = () => {
                             />
                             <Item
                                 title='Área'
-                                text={String(area)}
+                                text={String(area) + 'm²'}
                             />
                             <Item
                                 title='Tipo de Terreno'
