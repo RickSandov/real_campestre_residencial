@@ -7,6 +7,7 @@ import { VisitUs } from "./visitUs/VisitUs";
 import { FabIcons } from "components/fabs";
 import { DividerLogo, Footer } from "components";
 import { GoogleComments } from "./comments/GoogleComments";
+import { Plan } from "./plan/Plan";
 
 export const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ export const HomePage = () => {
       <Galleries />
       <Info />
       <DividerLogo />
+      <Plan />
       <VisitUs />
       <GoogleComments />
       <Footer />

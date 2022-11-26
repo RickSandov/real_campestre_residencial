@@ -5,6 +5,14 @@
 /.pnp
 .pnp.js
 
+# database
+/mongo
+
+/.vscode
+/.swc
+
+.env
+
 # testing
 /coverage
 

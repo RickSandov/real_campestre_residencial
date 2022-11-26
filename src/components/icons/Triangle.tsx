@@ -7,8 +7,8 @@ export const Triangle = () => {
                 <path d="M-0.5 10L469.319 466.75H-470.319L-0.5 10Z" fill="#B0C774" />
             </g>
             <defs>
-                <filter id="filter0_d_100_291" x="-476.319" y="0" width="959.638" height="476.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <filter id="filter0_d_100_291" x="-476.319" y="0" width="959.638" height="476.75" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                     <feOffset dx="4" />
                     <feGaussianBlur stdDeviation="5" />

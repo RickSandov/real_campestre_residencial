@@ -1,0 +1,112 @@
+@use "./colors";
+
+.st1 {
+  fill: #d1d1d1;
+}
+
+.st4 {
+  fill: #94b739;
+  stroke: #bfbfbf;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+}
+.st5 {
+  fill: #94b739;
+  stroke: #bfbfbf;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+}
+.st6 {
+  fill: #94b739;
+  stroke: #bfbfbf;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+}
+.st7 {
+  fill: #bfbfbf;
+}
+.st8 {
+  fill: #ac6122;
+}
+.st9 {
+  fill: #dcdcdc;
+}
+
+.st0 {
+  fill: #fff5eb;
+}
+
+.st3 {
+  fill: #13342d;
+  display: none;
+  visibility: hidden;
+}
+
+.plan {
+  position: relative;
+}
+
+.st10 {
+  transition: 0.3s all ease-in-out;
+  fill: rgba(255, 255, 255, 0.2);
+  stroke-width: 1.5px;
+  // stroke: rgba(19, 52, 45, 0.5);
+  // cursor: pointer;
+
+  // &:hover {
+  //   stroke: rgba(19, 52, 45, 1);
+  //   fill: #b0c774;
+  // }
+}
+
+.st11 {
+  display: none;
+  visibility: hidden;
+}
+
+.st20 {
+  // fill: rgba(176, 199, 116, 0.6);
+  fill: rgba(colors.$bc, 0.7);
+  pointer-events: none;
+}
+
+.st12 {
+  // pointer-events: none;
+  fill: white;
+}
+
+.lot {
+  .circle {
+    fill: #c40000;
+  }
+  .st10 {
+    fill: white;
+    stroke-width: 1.5px;
+    stroke: rgba(19, 52, 45, 0.4);
+
+    &:hover {
+      fill: colors.$lot-active;
+    }
+    position: relative;
+  }
+  &.active {
+    .st10 {
+      fill: #b0c774;
+    }
+  }
+
+  &.a .st10 {
+    fill: colors.$type-a;
+  }
+  &.b .st10 {
+    fill: colors.$type-b;
+  }
+  &.c .st10 {
+    fill: colors.$type-c;
+  }
+
+  &.a .st10,
+  &.b .st10,
+  &.c .st10 {
+  }
+}

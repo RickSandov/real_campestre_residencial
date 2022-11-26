@@ -1,20 +1,18 @@
-
 @import "./abstracts/mixins";
 @import "./animations";
 @import "./base";
 @import "./toaster";
 @import "./fonts";
-
+@import "./plan";
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: white !important;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: white !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .swiper-pagination-bullet {
-
-    &.swiper-pagination-bullet-active {
-        color: white;
-    }
+  &.swiper-pagination-bullet-active {
+    color: white;
+  }
 }
