@@ -114,26 +114,66 @@
     max-width: 100%;
     height: 50rem;
     padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .contact {
+      @include mixins.button(colors.$primary, colors.$primary-dark, white);
+      color: white;
+      align-self: flex-end;
+      margin-top: auto;
+    }
 
     h4 {
       font-size: 2.5rem;
       font-family: variables.$font;
       font-weight: normal;
       color: colors.$bc;
+      margin-bottom: 2rem;
+
+      &.sold,
+      &.infoTitle {
+        font-weight: 700;
+      }
+      &.sold {
+        color: colors.$red;
+      }
+      &.infoTitle {
+        color: colors.$primary;
+      }
+    }
+
+    p {
+      strong {
+        text-transform: capitalize;
+        margin-left: 0.5rem;
+        border-bottom: 1px solid colors.$primary;
+      }
+      &.a strong {
+        color: colors.$type-a;
+        border-color: colors.$type-a;
+      }
+      &.b strong {
+        color: colors.$type-b;
+        border-color: colors.$type-b;
+      }
+      &.c strong {
+        color: colors.$type-c;
+        border-color: colors.$type-c;
+      }
     }
   }
 }
 
-// .card {
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-// }
-
 .circle {
   pointer-events: none;
+  stroke: white;
+  stroke-width: 1px;
   &.red {
-    fill: #c40000;
+    fill: colors.$red;
   }
   &.black {
     fill: black;

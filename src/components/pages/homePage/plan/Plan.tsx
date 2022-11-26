@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { PlanLot } from './PlanLot';
 
 import styles from './plan.module.scss'
+import { InfoCard } from './InfoCard';
 
 export const Plan = () => {
 
@@ -44,9 +45,7 @@ export const Plan = () => {
                     </li>
                 </ul>
             </div>
-            <div className={styles.card} >
-                <h4>Elige un terreno para ver su información</h4>
-            </div>
+            <InfoCard />
         </section>
     )
 }

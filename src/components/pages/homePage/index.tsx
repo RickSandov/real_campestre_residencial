@@ -8,6 +8,7 @@ import { FabIcons } from "components/fabs";
 import { DividerLogo, Footer } from "components";
 import { GoogleComments } from "./comments/GoogleComments";
 import { Plan } from "./plan/Plan";
+import { HomeLotsProvider } from "contexts";
 
 export const HomePage = () => {
   return (
@@ -18,8 +19,12 @@ export const HomePage = () => {
       <Galleries />
       <Info />
       <DividerLogo />
-      <Plan />
-      <VisitUs />
+
+      <HomeLotsProvider>
+        <Plan />
+        <VisitUs />
+      </HomeLotsProvider>
+
       <GoogleComments />
       <Footer />
 

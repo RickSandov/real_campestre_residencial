@@ -4,7 +4,7 @@ import styles from './visitUs.module.scss';
 
 export const VisitUs = () => {
     return (
-        <section className={styles.container}>
+        <section id='visitanos' className={styles.container}>
             <TopTitle alignment='center' span='visítanos' title='conoce tu nuevo fraccionamiento' />
             <div className={styles.map}>
                 <iframe

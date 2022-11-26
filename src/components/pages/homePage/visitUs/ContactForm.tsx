@@ -31,7 +31,7 @@ export const ContactForm = () => {
     const formikProps = { initialValues, validationSchema, onSubmit };
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card} id='contacto' >
             <h2>Contáctanos</h2>
             <p>Envía el formulario y nosotros te contactamos.</p>
             <Formik {...formikProps}>

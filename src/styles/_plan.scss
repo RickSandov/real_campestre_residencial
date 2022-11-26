@@ -76,22 +76,22 @@
 }
 
 .lot {
-  .circle {
-    fill: #c40000;
-  }
+  // .circle {
+  //   fill: #c40000;
+  // }
   .st10 {
     fill: white;
     stroke-width: 1.5px;
     stroke: rgba(19, 52, 45, 0.4);
 
     &:hover {
-      fill: colors.$lot-active;
+      fill: colors.$red;
     }
     position: relative;
   }
   &.active {
     .st10 {
-      fill: #b0c774;
+      fill: colors.$red;
     }
   }
 
@@ -105,8 +105,18 @@
     fill: colors.$type-c;
   }
 
-  &.a .st10,
-  &.b .st10,
-  &.c .st10 {
+  &.a,
+  &.b,
+  &.c {
+    .st10 {
+      &:hover {
+        fill: colors.$lot-active;
+      }
+    }
+    &.active {
+      .st10 {
+        fill: colors.$lot-active;
+      }
+    }
   }
 }
