@@ -123,7 +123,7 @@
     .contact {
       @include mixins.button(colors.$primary, colors.$primary-dark, white);
       color: white;
-      align-self: flex-end;
+      align-self: flex-start;
       margin-top: auto;
     }
 
