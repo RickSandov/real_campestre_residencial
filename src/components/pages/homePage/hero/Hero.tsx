@@ -18,8 +18,10 @@ export const Hero = () => {
                 </h2>
             </div>
             <div className={styles.bottom}>
-                <p>Conoce el proyecto</p>
-                <DownIcon />
+                <p><a href="#real">Conoce el proyecto</a></p>
+                <a href="#real">
+                    <DownIcon />
+                </a>
             </div>
         </div>
     )
