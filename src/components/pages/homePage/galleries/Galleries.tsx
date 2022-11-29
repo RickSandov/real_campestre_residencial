@@ -29,9 +29,9 @@ const galleries: Gallery[] = [
         name: 'mini.golf',
         images: [
             '/assets/mini_golf.png',
-            '/public/assets/golf1.jpeg',
-            '/public/assets/golf2.jpeg',
-            '/public/assets/golf3.jpeg',
+            '/assets/golf1.jpeg',
+            '/assets/golf2.jpeg',
+            '/assets/golf3.jpeg',
         ]
     },
     {
