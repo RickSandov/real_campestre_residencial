@@ -25,7 +25,7 @@ export const Info = () => {
                     </li>
                     <li>
                         <p>
-                            <strong>0.607</strong> ha de superficia de área de donación
+                            <strong>0.607</strong> ha de superficie de área de donación
                         </p>
                     </li>
                 </ul>

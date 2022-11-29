@@ -19,7 +19,7 @@ export const InfoCard = () => {
         <div ref={ref} className={styles.card} >
             {
                 !selectedLot ? (
-                    <h4>Elige un terreno para ver su información</h4>
+                    <h4>Selecciona un terreno para ver su información</h4>
                 ) : (() => {
                     const { area, num, type, status, price, section } = selectedLot;
                     const sold = status !== EStatus.available;
