@@ -16,6 +16,7 @@ export const sendEmail = async (information: IContactForm) => {
     subject: `Solicitud de información (${information.name}: ${information.phoneNumber})`,
     html: mail,
   });
+  console.log({ mailerResponse });
 };
 
 function mailContainer(content: string): string {

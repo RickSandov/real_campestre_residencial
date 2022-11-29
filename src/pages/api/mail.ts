@@ -1,5 +1,6 @@
 import { IContactForm } from "interfaces";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { connect, disconnect } from "server/database";
 import { sendEmail } from "server/helpers";
 import { FormContact } from "server/models";
 
@@ -17,7 +18,7 @@ export default async function handler(
     case "POST": {
       try {
         const { email, name, phoneNumber, message } = body as IContactForm;
-
+        await connect();
         const contactExists = await FormContact.findOne({ phoneNumber });
 
         if (!contactExists) {
@@ -25,12 +26,14 @@ export default async function handler(
           await newContact.save();
         }
 
+        await disconnect();
         await sendEmail(body);
 
         return res.status(201).json({
           message: "Mensaje enviado con éxito",
         });
       } catch (error) {
+        await disconnect();
         res.status(500);
       }
     }

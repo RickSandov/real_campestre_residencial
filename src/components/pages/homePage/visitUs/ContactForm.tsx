@@ -42,7 +42,10 @@ export const ContactForm = () => {
                 helpers.resetForm();
                 return 'Formulario enviado, te contactaremos lo antes posible.'
             },
-            error: 'Hubo un error al enviar el formulario, intentelo de nuevo más tarde.'
+            error: () => {
+                setIsLoading(false);
+                return 'Hubo un error al enviar el formulario, intentelo de nuevo más tarde.'
+            }
         })
     }
 
