@@ -14,7 +14,9 @@ export const sendEmail = async (information: IContactForm) => {
     from: '"Real Campestre Residencial" <i.s.ricardo.sandoval@gmail.com>',
     // to: information.email,
     to: ["i.s.ricardo.sandoval@gmail.com", "alfabaluarte@gmail.com"],
-    subject: `Solicitud de información (${information.name}: ${information.phoneNumber})`,
+    subject: `Solicitud de información (${information.name.split(" ")[0]}}: ${
+      information.phoneNumber
+    })`,
     html: mail,
   });
   //   console.log({ mailerResponse });
@@ -32,7 +34,7 @@ function mailHeader(clientName: string, admin?: boolean): string {
         style="height: 150px; max-width: 90%; max-height: 90%;  display: block; margin: 0 auto;">
         <h1 style="font-weight: 400; display: block;">${
           admin
-            ? `¡Solicitan Información! Cliente: ${clientName.split(" ")[0]}`
+            ? `¡Solicitan Información!`
             : `¡${clientName}, gracias por comunicarte con nosotros!`
         }</h1>
     </div>
