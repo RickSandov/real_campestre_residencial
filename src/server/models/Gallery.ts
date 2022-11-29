@@ -1,6 +1,5 @@
 import { IGallery, IImage } from "interfaces";
 import { model, Model, models, Schema } from "mongoose";
-import { Gallery } from "../../components/pages/homePage/galleries/Galleries";
 
 const ImageSchema = new Schema<IImage>({
   url: {

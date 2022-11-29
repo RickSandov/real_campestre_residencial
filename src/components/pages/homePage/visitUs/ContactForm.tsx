@@ -1,5 +1,8 @@
 import { Input } from 'components/input/Input';
 import { Formik, FormikHelpers, FormikValues } from 'formik';
+import { api } from 'lib';
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import * as Yup from 'yup';
 import styles from './contactForm.module.scss';
 
@@ -24,8 +27,23 @@ const initialValues = {
 
 export const ContactForm = () => {
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const onSubmit = (values: FormikValues, helpers: FormikHelpers<any>) => {
-        console.log({ values });
+        setIsLoading(true);
+        const { name, phoneNumber, email, message } = values;
+        const req = api.post('mail', {
+            name, phoneNumber, email, message
+        })
+        toast.promise(req, {
+            loading: 'Enviando formulario...',
+            success: () => {
+                setIsLoading(false);
+                helpers.resetForm();
+                return 'Formulario enviado, te contactaremos lo antes posible.'
+            },
+            error: 'Hubo un error al enviar el formulario, intentelo de nuevo más tarde.'
+        })
     }
 
     const formikProps = { initialValues, validationSchema, onSubmit };
@@ -56,7 +74,7 @@ export const ContactForm = () => {
                             <label htmlFor="message">Mensaje</label>
                             <textarea name="message" id='message'></textarea>
                         </div>
-                        <button type='submit' className={styles.button} >
+                        <button disabled={isLoading} type='submit' className={styles.button} >
                             Enviar
                         </button>
                     </form>
