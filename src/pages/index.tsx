@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { HomePage } from 'components/pages'
 import { GalleryProvider } from 'contexts'
 
-const title = 'Construye la casa de tus sueños en la zona con mayor plusvalía de la Durango, Durango.';
+const title = 'Real Campestre Residencial. Construye la casa de tus sueños en la zona con mayor plusvalía de la Durango, Durango.';
 const description = 'Los mejores terrenos de Durango, ubicados en la zona con mayor pluslvalía de la ciudad.';
 
 export default function Home() {
