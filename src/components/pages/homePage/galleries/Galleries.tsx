@@ -7,6 +7,9 @@ import { Navigation } from "swiper";
 
 import styles from './galleries.module.scss';
 import Image from "next/image";
+import { useContext } from "react";
+import { GalleryContext } from "contexts";
+import { IGalleryS } from "interfaces";
 
 export interface Gallery {
     name: string;
@@ -17,7 +20,18 @@ const galleries: Gallery[] = [
     {
         name: 'pista',
         images: [
-            '/assets/pista.png'
+            '/assets/pista.png',
+            '/assets/pista1.jpeg',
+            '/assets/pista2.jpeg',
+        ]
+    },
+    {
+        name: 'mini.golf',
+        images: [
+            '/assets/mini_golf.png',
+            '/public/assets/golf1.jpeg',
+            '/public/assets/golf2.jpeg',
+            '/public/assets/golf3.jpeg',
         ]
     },
     {
@@ -26,15 +40,16 @@ const galleries: Gallery[] = [
             '/assets/comun.png'
         ]
     },
-    {
-        name: 'mini.golf',
-        images: [
-            '/assets/mini_golf.png'
-        ]
-    },
+
 ];
 
 export const Galleries = () => {
+    const { setActiveGallery } = useContext(GalleryContext);
+
+    const onClick = (gallery: IGalleryS) => {
+        setActiveGallery(gallery);
+    }
+
     return (
         <section className={styles.container} >
             <h2>
@@ -59,10 +74,12 @@ export const Galleries = () => {
                 className={styles.galleries}
             >
                 {
-                    galleries.map(({ name, images }) => {
+                    galleries.map((g) => {
+                        const { name, images } = g;
                         const split = name.includes('.');
+
                         return (
-                            <SwiperSlide key={name} className={styles.slide} >
+                            <SwiperSlide key={name} className={styles.slide} onClick={() => onClick(g)} >
                                 <h4>
                                     {
                                         split ? name.split('.').map(span => (
@@ -78,6 +95,6 @@ export const Galleries = () => {
                     })
                 }
             </Swiper>
-        </section>
+        </section >
     )
 }

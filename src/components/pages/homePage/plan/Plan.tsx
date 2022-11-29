@@ -12,9 +12,15 @@ export const Plan = () => {
     const [lots, setLots] = useState<ILot[]>([]);
 
     useEffect(() => {
-        api.get<{ lots: ILot[] }>('lots').then(res => {
-            setLots(res.data.lots)
-        })
+        if (!lots.length) {
+            try {
+                api.get<{ lots: ILot[] }>('lots').then(res => {
+                    setLots(res.data.lots)
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }, []);
 
     return (

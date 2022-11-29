@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { HomeLotsContext } from 'contexts';
 import { EStatus } from 'interfaces';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { ETypes } from 'interfaces';
+import { getLotTypeKeyByValue } from 'helpers';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -23,13 +23,6 @@ export const InfoCard = () => {
                 ) : (() => {
                     const { area, num, type, status, price, section } = selectedLot;
                     const sold = status !== EStatus.available;
-                    function getKeyByValue(value: string) {
-                        const indexOfS = Object.values(ETypes).indexOf(value as unknown as ETypes);
-
-                        const key = Object.keys(ETypes)[indexOfS];
-                        console.log(key);
-                        return key;
-                    }
                     const Info = () => (
                         <>
                             <h4 className={sold ? styles.sold : styles.infoTitle} >
@@ -40,13 +33,13 @@ export const InfoCard = () => {
                                 text={section}
                             />
                             <Item
-                                title='Número'
+                                title='Lote número'
                                 text={String(num)}
                             />
                             <Item
                                 title='Tipo de Terreno'
                                 text={String(type)}
-                                className={styles[getKeyByValue(type)]}
+                                className={styles[getLotTypeKeyByValue(type)]}
                             />
                             {
                                 !sold && (
