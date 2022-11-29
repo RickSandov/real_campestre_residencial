@@ -1,5 +1,5 @@
 import { Input } from 'components/input/Input';
-import { Formik, FormikHelpers, FormikValues } from 'formik';
+import { Field, Formik, FormikHelpers, FormikValues } from 'formik';
 import { api } from 'lib';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
@@ -40,6 +40,7 @@ export const ContactForm = () => {
             success: () => {
                 setIsLoading(false);
                 helpers.resetForm();
+
                 return 'Formulario enviado, te contactaremos lo antes posible.'
             },
             error: () => {
@@ -73,10 +74,15 @@ export const ContactForm = () => {
                             nameDisplayed='Correo electrónico'
                             type='email'
                         />
-                        <div className={styles.message}>
+                        {/* <div className={styles.message}>
                             <label htmlFor="message">Mensaje</label>
                             <textarea name="message" id='message'></textarea>
+                        </div> */}
+                        <div className={styles.message}>
+                            <label htmlFor="message">Mensaje</label>
+                            <Field as='textarea' name="message" id='message' />
                         </div>
+
                         <button disabled={isLoading} type='submit' className={styles.button} >
                             Enviar
                         </button>

@@ -1,88 +1,105 @@
-@use"../../styles/abstracts/mixins";
-@use"../../styles/abstracts/variables";
-@use"../../styles/colors";
+@use "../../styles/abstracts/mixins";
+@use "../../styles/abstracts/variables";
+@use "../../styles/colors";
 
 .container {
-    position: relative;
-    // width: 20rem !important;
-    // width: 100%;
-    flex-grow: 1;
+  position: relative;
+  // width: 20rem !important;
+  // width: 100%;
+  flex-grow: 1;
 
-    background-color: transparent;
+  background-color: transparent;
 
-    &.small {
-        flex: 0 1 30%
+  &.small {
+    flex: 0 1 30%;
+  }
+
+  &.medium {
+    flex: 0 1 50%;
+  }
+
+  &.large {
+    flex: 0 1 100%;
+  }
+}
+
+.textarea {
+  label {
+    color: colors.$disabled-gray;
+  }
+  textarea {
+    display: block;
+    width: 100%;
+    height: 10rem;
+    resize: none;
+    margin-top: 0.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+
+    &:focus {
+      outline-color: colors.$primary;
     }
-
-    &.medium {
-        flex: 0 1 50%
-    }
-
-    &.large {
-        flex: 0 1 100%
-    }
+  }
 }
 
 .input {
-    @include mixins.input(disabled);
+  @include mixins.input(disabled);
+  font-family: variables.$font;
+
+  &:focus {
+    @include mixins.input(active);
+  }
+
+  &:focus + label {
+    font-size: 1.6rem;
+    top: -12%;
+  }
+
+  & + label {
     font-family: variables.$font;
+  }
 
-    &:focus {
-        @include mixins.input(active);
+  &.active {
+    @include mixins.input(active);
+
+    & + label {
+      font-size: 1.4rem;
+      top: -15%;
+      color: colors.$primary;
     }
+  }
 
+  &.error {
+    @include mixins.input(error);
 
-    &:focus+label {
-        font-size: 1.6rem;
-        top: -12%;
+    & + label {
+      color: colors.$disabled-gray;
     }
-
-    &+label {
-        font-family: variables.$font;
-    }
-
-    &.active {
-        @include mixins.input(active);
-
-        &+label {
-            font-size: 1.4rem;
-            top: -15%;
-            color: colors.$primary;
-        }
-    }
-
-    &.error {
-        @include mixins.input(error);
-
-        &+label {
-            color: colors.$disabled-gray;
-        }
-    }
+  }
 }
 
-
 .label {
-    position: absolute;
-    color: colors.$disabled-gray;
-    user-select: none;
-    top: 30%;
-    transform: translateY(-50%);
-    left: 0;
-    transition: all 0.2s ease-in-out;
-    // z-index: -1;
+  position: absolute;
+  color: colors.$disabled-gray;
+  user-select: none;
+  top: 30%;
+  transform: translateY(-50%);
+  left: 0;
+  transition: all 0.2s ease-in-out;
+  // z-index: -1;
 
-    &:focus {
-        background-color: green !important;
-    }
+  &:focus {
+    background-color: green !important;
+  }
 }
 
 .error {
-    margin-top: .5rem;
-    color: colors.$red;
-    font-family: variables.$font;
-    width: 100%;
+  margin-top: 0.5rem;
+  color: colors.$red;
+  font-family: variables.$font;
+  width: 100%;
 
-    span {
-        font-size: 1.3rem;
-    }
+  span {
+    font-size: 1.3rem;
+  }
 }

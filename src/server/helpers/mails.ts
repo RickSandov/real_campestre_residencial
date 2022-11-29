@@ -12,11 +12,12 @@ export const sendEmail = async (information: IContactForm) => {
 
   const mailerResponse = await transporter.sendMail({
     from: '"Real Campestre Residencial" <i.s.ricardo.sandoval@gmail.com>',
-    to: information.email,
+    // to: information.email,
+    to: ["i.s.ricardo.sandoval@gmail.com", "alfabaluarte@gmail.com"],
     subject: `Solicitud de información (${information.name}: ${information.phoneNumber})`,
     html: mail,
   });
-  console.log({ mailerResponse });
+  //   console.log({ mailerResponse });
 };
 
 function mailContainer(content: string): string {
@@ -27,8 +28,8 @@ function mailContainer(content: string): string {
 function mailHeader(clientName: string, admin?: boolean): string {
   return `
     <div style="width: 100%; min-height: 150px; padding: 30px 10px;" >
-        <img src="https://www.realcampestredgo.com/assets/logotipo.png" alt="Langavi"
-        style="width: 100px; height: 100px; max-width: 90%; max-height: 90%;  display: block;">
+        <img src="https://www.realcampestredgo.com/assets/logotipo.png" alt="Real Campestre Residencial"
+        style="height: 150px; max-width: 90%; max-height: 90%;  display: block; margin: 0 auto;">
         <h1 style="font-weight: 400; display: block;">${
           admin
             ? `¡Solicitan Información! Cliente: ${clientName.split(" ")[0]}`
