@@ -30,7 +30,7 @@ function mailHeader(clientName: string, admin?: boolean): string {
         style="width: 100px; height: 100px; max-width: 90%; max-height: 90%;  display: block;">
         <h1 style="font-weight: 400; display: block;">${
           admin
-            ? `¡Solicitan Información! Cliente: ${clientName.split("")[0]}`
+            ? `¡Solicitan Información! Cliente: ${clientName.split(" ")[0]}`
             : `¡${clientName}, gracias por comunicarte con nosotros!`
         }</h1>
     </div>
