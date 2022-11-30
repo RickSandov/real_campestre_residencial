@@ -7,13 +7,13 @@ export const FbFab = () => {
         <div
             className={`${styles.fab} ${styles.fb}`}
         >
-            <Link
+            <a
                 href="https://www.facebook.com/RealCampestreResidencial"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <a><FacebookIcon /></a>
-            </Link>
+                <FacebookIcon />
+            </a>
         </div>
     )
 }

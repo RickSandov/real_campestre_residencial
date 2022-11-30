@@ -7,13 +7,13 @@ export const WaFab = () => {
         <div
             className={`${styles.fab} ${styles.wa}`}
         >
-            <Link
+            <a
                 href="https://wa.me/+526182590909"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
             >
-                <a><WaIcon /></a>
-            </Link>
+                <WaIcon />
+            </a>
         </div>
     )
 }

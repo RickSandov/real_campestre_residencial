@@ -7,13 +7,13 @@ export const CallFab = () => {
         <div
             className={`${styles.fab} ${styles.call}`}
         >
-            <Link
+            <a
                 href="tel:6182590909"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <a><CallIcon /></a>
-            </Link>
+                <CallIcon />
+            </a>
         </div>
     )
 }
