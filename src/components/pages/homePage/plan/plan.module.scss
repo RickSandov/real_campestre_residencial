@@ -188,4 +188,12 @@
   background-color: white;
   padding: 2rem 2.5rem;
   max-width: 25%;
+
+  @include mixins.respond(phone) {
+    padding: 1rem 0 2rem 2rem;
+  }
+
+  p {
+    font-size: clamp(1vw, 2vw, 1.8rem);
+  }
 }
