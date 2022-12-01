@@ -40,7 +40,14 @@ export const PlanLot = ({ lot }: Props) => {
         }
     }, [])
 
-    const onClick = (e: MouseEvent<SVGGElement>) => {
+    const onClick = (lot: ILot) => {
+
+        console.log(window.innerWidth)
+        if (document && window.innerWidth <= 1339) {
+            document.getElementById('info-plano')?.scrollIntoView();
+        }
+
+        setSelectedLot(lot);
 
         // console.log(lot);
         // const section = 'o';
@@ -72,7 +79,7 @@ export const PlanLot = ({ lot }: Props) => {
     const colorClass = useMemo(() => lot.status === EStatus.available ? (lot.type === ETypes.a ? 'a' : lot.type === ETypes.b ? 'b' : 'c') : null, []);
 
     return (
-        <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => setSelectedLot(lot)}>
+        <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => onClick(lot)}>
             <title>{lot.status !== EStatus.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
             {/* <circle cx="510.95001220703125" cy="124.95000457763672" r="5" className="circle"></circle> */}
         </g>

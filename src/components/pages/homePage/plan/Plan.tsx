@@ -1,15 +1,19 @@
 import { PlanSvg } from 'components/icons/PlanSvg'
 import { ETypes, ILot } from 'interfaces';
 import { api } from 'lib';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { PlanLot } from './PlanLot';
 
 import styles from './plan.module.scss'
 import { InfoCard } from './InfoCard';
+import { HomeLotsContext } from 'contexts';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 export const Plan = () => {
 
     const [lots, setLots] = useState<ILot[]>([]);
+    const { selectedLot } = useContext(HomeLotsContext);
+    const [ref] = useAutoAnimate<HTMLDivElement>();
 
     useEffect(() => {
         if (!lots.length) {
@@ -25,7 +29,7 @@ export const Plan = () => {
 
     return (
         <section id='plano' className={styles.plan} >
-            <div className={styles.graphic}>
+            <div ref={ref} className={styles.graphic}>
                 <PlanSvg>
                     {
                         lots.map(lot => (
@@ -33,6 +37,13 @@ export const Plan = () => {
                         ))
                     }
                 </PlanSvg>
+                {
+                    !selectedLot && (
+                        <div className={styles.selectLot} >
+                            <p>Selecciona un terreno para ver su información</p>
+                        </div>
+                    )
+                }
                 <ul className={styles.types}>
                     {
                         Object.values(ETypes).map((text, index) => {

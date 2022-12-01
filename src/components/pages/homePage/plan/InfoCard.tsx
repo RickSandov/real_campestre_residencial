@@ -13,10 +13,10 @@ const Item = ({ title, text, className }: { title: string; text: string; classNa
 
 export const InfoCard = () => {
     const { selectedLot } = useContext(HomeLotsContext);
-    const [ref] = useAutoAnimate<HTMLDivElement>()
+    const [ref] = useAutoAnimate<HTMLDivElement>();
 
     return (
-        <div ref={ref} className={styles.card} >
+        <section id='info-plano' ref={ref} className={styles.card} >
             {
                 !selectedLot ? (
                     <h4>Selecciona un terreno para ver su información</h4>
@@ -63,6 +63,6 @@ export const InfoCard = () => {
                     return <Info />
                 })()
             }
-        </div>
+        </section>
     )
 }

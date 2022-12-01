@@ -4,10 +4,12 @@ import { HomeLotsContext, homeLotsReducer } from './';
 
 export interface HomeLotsState {
     selectedLot: ILot | null;
+    lastValidSelectedLot: ILot | null;
 }
 
 const HomeLots_INITIAL_STATE: HomeLotsState = {
-    selectedLot: null
+    selectedLot: null,
+    lastValidSelectedLot: null
 };
 
 export const HomeLotsProvider: FC<PropsWithChildren> = ({ children }) => {

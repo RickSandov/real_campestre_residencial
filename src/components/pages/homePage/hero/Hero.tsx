@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const Hero = () => {
     return (
-        <div className={styles.hero}>
+        <section id="inicio" className={styles.hero}>
             <div className={styles.logo}>
                 <Flower />
                 <h2>
@@ -23,6 +23,6 @@ export const Hero = () => {
                     <DownIcon />
                 </a>
             </div>
-        </div>
+        </section>
     )
 }

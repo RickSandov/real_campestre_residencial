@@ -1,5 +1,5 @@
 import { IGalleryS } from 'interfaces';
-import { FC, PropsWithChildren, useCallback, useReducer } from 'react';
+import { FC, PropsWithChildren, useCallback, useEffect, useReducer } from 'react';
 import { GalleryContext, galleryReducer } from './';
 
 export interface GalleryState {
@@ -19,7 +19,13 @@ export const GalleryProvider: FC<PropsWithChildren> = ({ children }) => {
     const [state, dispatch] = useReducer(galleryReducer,
         Gallery_INITIAL_STATE);
 
-
+    useEffect(() => {
+        if (state.isFullScreen) {
+            document.body.style.setProperty('--overflow', 'hidden');
+        } else {
+            document.body.style.setProperty('--overflow', 'scroll');
+        }
+    }, [state.isFullScreen]);
 
     const setActiveGallery = useCallback(
         (gallery: IGalleryS, image?: string) => (

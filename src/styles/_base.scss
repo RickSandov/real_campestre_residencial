@@ -28,7 +28,13 @@ body {
   font-family: variables.$font;
   color: colors.$text-dark;
   scroll-behavior: smooth;
+  overflow-y: var(--overflow);
   // @include mixins.scrollBar(5px);
+}
+
+section,
+main {
+  scroll-padding-top: 2rem;
 }
 
 // body {

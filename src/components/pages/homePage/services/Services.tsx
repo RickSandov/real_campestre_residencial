@@ -31,8 +31,13 @@ const services: Service[] = [
     },
     {
         src: '/assets/park.png',
-        title: 'Mini Golf',
+        title: 'Amenidades',
         text: 'Áreas verdes y pista para correr'
+    },
+    {
+        src: '/assets/road.png',
+        title: 'Pavimeto Nuevo',
+        text: 'Acceso recién pavimentado'
     },
 
 ]
