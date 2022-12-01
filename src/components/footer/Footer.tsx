@@ -6,9 +6,7 @@ import styles from './footer.module.scss';
 export const Footer = () => {
     return (
         <footer className={styles.footer} >
-            <a title='inicio' href="#inicio" className={styles.home}>
-                <DownIcon />
-            </a>
+
             <div className={styles.triangle}>
                 <Triangle />
                 <div className={styles.content}>
@@ -18,6 +16,9 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
+            <a title='inicio' href="#inicio" className={styles.home}>
+                <DownIcon />
+            </a>
             <div className={styles.logo}>
                 <Flower />
                 <h2>

@@ -8,7 +8,7 @@
   padding: 4rem 3rem 2rem 3rem;
   position: relative;
   min-height: 60vh;
-  z-index: 5;
+  z-index: 7;
 
   @include mixins.respond(from-tab-port) {
     display: flex;
@@ -144,9 +144,9 @@
   background-color: c.$primary;
   display: grid;
   place-content: center;
-  align-self: flex-end;
   transform: rotate(180deg);
   transition: 0.3s all ease-in-out;
+  margin: 3rem 0 3rem auto;
   &:hover {
     background-color: white;
     & svg path {
