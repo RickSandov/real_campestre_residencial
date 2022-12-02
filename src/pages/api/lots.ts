@@ -26,30 +26,30 @@ export default async function handler(
       });
     }
 
-    case "PATCH": {
-      const { body } = req;
-      const { lot } = body as { lot: ILot };
-      console.log(body);
-      await connect();
-      const lotToEdit = await Lot.findById(lot._id);
-      console.log({ lotToEdit });
-      if (lotToEdit) {
-        const { section, num, area, price, type, status } = lot;
-        lotToEdit.section = section;
-        lotToEdit.num = num;
-        // lotToEdit.area = area;
-        // lotToEdit.price = price;
-        // lotToEdit.type = type;
-        // lotToEdit.status = status;
-        await lotToEdit.save();
-        await disconnect();
-        console.log(lotToEdit);
-        console.log({ lotToEdit });
-        return res.status(200).json({ message: "Ok" });
-      }
-      await disconnect();
-      res.status(500);
-    }
+    // case "PATCH": {
+    //   const { body } = req;
+    //   const { lot } = body as { lot: ILot };
+    //   console.log(body);
+    //   await connect();
+    //   const lotToEdit = await Lot.findById(lot._id);
+    //   console.log({ lotToEdit });
+    //   if (lotToEdit) {
+    //     const { section, num, area, price, type, status } = lot;
+    //     lotToEdit.section = section;
+    //     lotToEdit.num = num;
+    //     // lotToEdit.area = area;
+    //     // lotToEdit.price = price;
+    //     // lotToEdit.type = type;
+    //     // lotToEdit.status = status;
+    //     await lotToEdit.save();
+    //     await disconnect();
+    //     console.log(lotToEdit);
+    //     console.log({ lotToEdit });
+    //     return res.status(200).json({ message: "Ok" });
+    //   }
+    //   await disconnect();
+    //   res.status(500);
+    // }
 
     default:
       res.status(405);
