@@ -48,35 +48,35 @@ export const PlanLot = ({ lot }: Props) => {
 
         setSelectedLot(lot);
 
-        console.log(lot);
-        const section = 'casa de prueba';
+        // console.log(lot);
+        // const section = 'casa de prueba';
 
-        // const area = prompt('area');
-        const num = prompt('numero');
-        // const type = ETypes.c;
-        // const typePrice = 3400;
-        // const typePrice = 3700;
-        // const typePrice = 4000;
+        // // const area = prompt('area');
+        // const num = prompt('numero');
+        // // const type = ETypes.c;
+        // // const typePrice = 3400;
+        // // const typePrice = 3700;
+        // // const typePrice = 4000;
 
-        // Tipo a precio 3400
-        // Tipo b precio 3700
+        // // Tipo a precio 3400
+        // // Tipo b precio 3700
 
-        // const status = EStatus.payed;
-        // const price = Number(area) * typePrice;
-        const lotInfo = {
-            section,
-            num,
-            // price,
-            // area,
-            // type,
-            // status,
-            _id: lot._id
-        }
-        api.patch('lots', {
-            lot: lotInfo
-        }).then(res => {
-            console.log(res.status)
-        })
+        // // const status = EStatus.payed;
+        // // const price = Number(area) * typePrice;
+        // const lotInfo = {
+        //     section,
+        //     num,
+        //     // price,
+        //     // area,
+        //     // type,
+        //     // status,
+        //     _id: lot._id
+        // }
+        // api.patch('lots', {
+        //     lot: lotInfo
+        // }).then(res => {
+        //     console.log(res.status)
+        // })
     }
 
     const colorClass = useMemo(() => lot.status === EStatus.available ? (lot.type === ETypes.a ? 'a' : lot.type === ETypes.b ? 'b' : 'c') : null, []);
