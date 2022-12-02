@@ -36,7 +36,7 @@ const services: Service[] = [
     },
     {
         src: '/assets/road.png',
-        title: 'Pavimeto Nuevo',
+        title: 'Pavimento Nuevo',
         text: 'Acceso recién pavimentado'
     },
 
