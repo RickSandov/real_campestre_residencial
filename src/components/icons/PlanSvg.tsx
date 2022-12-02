@@ -268,6 +268,9 @@ export const PlanSvg: React.FC<PropsWithChildren> = ({ children }) => {
 			</g>
 
 			<g id="green">
+				{/* TODO */}
+				<polygon className="st4" points="331.4,500.2 340.9,491.3 357.3,508.8 348.3,518.1 "></polygon>
+
 				<polygon className="st4" points="85.1,144.8 81.6,141.1 123.2,83.9 138.8,88 	" />
 				<polygon className="st4" points="256.4,110.1 309.4,91.3 360.2,99.1 298.8,156.1 	" />
 				<polygon className="st4" points="617.6,82 630.4,70.1 632.4,72.4 619.6,84.3 	" />
