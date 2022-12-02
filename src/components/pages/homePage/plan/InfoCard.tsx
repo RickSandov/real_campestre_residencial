@@ -41,13 +41,13 @@ export const InfoCard = () => {
                                 text={String(type)}
                                 className={styles[getLotTypeKeyByValue(type)]}
                             />
+                            <Item
+                                title='Área'
+                                text={String(area) + 'm²'}
+                            />
                             {
                                 !sold && (
                                     <>
-                                        <Item
-                                            title='Área'
-                                            text={String(area) + 'm²'}
-                                        />
                                         <Item
                                             title='Precio'
                                             text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}

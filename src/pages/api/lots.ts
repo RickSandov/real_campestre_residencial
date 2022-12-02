@@ -37,10 +37,10 @@ export default async function handler(
         const { section, num, area, price, type, status } = lot;
         lotToEdit.section = section;
         lotToEdit.num = num;
-        lotToEdit.area = area;
-        lotToEdit.price = price;
+        // lotToEdit.area = area;
+        // lotToEdit.price = price;
         // lotToEdit.type = type;
-        lotToEdit.status = status;
+        // lotToEdit.status = status;
         await lotToEdit.save();
         await disconnect();
         console.log(lotToEdit);
