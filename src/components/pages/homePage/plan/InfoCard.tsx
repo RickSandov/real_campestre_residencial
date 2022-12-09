@@ -6,6 +6,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getLotTypeKeyByValue } from 'helpers';
 import { motion } from 'framer-motion';
 import { fadeIn } from 'utils/motion';
+import { ETypes } from '../../../../interfaces/Lot';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -26,7 +27,7 @@ export const InfoCard = () => {
             initial='hidden'
             whileInView='show'
             viewport={{
-                once: false,
+                once: true,
                 amount: .2
             }}
         >
@@ -61,10 +62,14 @@ export const InfoCard = () => {
                             {
                                 !sold && (
                                     <>
-                                        <Item
-                                            title='Precio'
-                                            text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                        />
+                                        {
+                                            type !== ETypes.c && (
+                                                <Item
+                                                    title='Precio'
+                                                    text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                                />
+                                            )
+                                        }
                                         <a href='#contacto' className={styles.contact} >
                                             Contáctanos
                                         </a>
