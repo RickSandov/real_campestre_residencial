@@ -18,7 +18,7 @@ export default function ReviewsSlider({ reviews, rating, totalRatings }: Data) {
     return (
         <motion.div
             className={styles["reviews-box"]}
-            variants={fadeIn('up', 'spring', 1.5, 1.5)}
+            variants={fadeIn('up', 'spring', .3, 1.5)}
             initial='hidden'
             whileInView='show'
             viewport={{
