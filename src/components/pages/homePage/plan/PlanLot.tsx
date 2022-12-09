@@ -42,9 +42,9 @@ export const PlanLot = ({ lot }: Props) => {
 
     const onClick = (lot: ILot) => {
 
-        // if (document && window.innerWidth <= 1339) {
-        //     document.getElementById('info-plano')?.scrollIntoView();
-        // }
+        if (document && window.innerWidth <= 1339) {
+            document.getElementById('info-plano')?.scrollIntoView();
+        }
 
         setSelectedLot(lot);
 
