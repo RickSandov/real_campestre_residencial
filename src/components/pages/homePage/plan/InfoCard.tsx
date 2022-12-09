@@ -4,6 +4,8 @@ import { HomeLotsContext } from 'contexts';
 import { EStatus } from 'interfaces';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getLotTypeKeyByValue } from 'helpers';
+import { motion } from 'framer-motion';
+import { fadeIn } from 'utils/motion';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -16,7 +18,18 @@ export const InfoCard = () => {
     const [ref] = useAutoAnimate<HTMLDivElement>();
 
     return (
-        <section id='info-plano' ref={ref} className={styles.card} >
+        <motion.section
+            id='info-plano'
+            ref={ref}
+            className={styles.card}
+            variants={fadeIn('left', 'spring', .2, 1.5)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{
+                once: false,
+                amount: .2
+            }}
+        >
             {
                 !selectedLot ? (
                     <h4>Selecciona un terreno para ver su información</h4>
@@ -63,6 +76,6 @@ export const InfoCard = () => {
                     return <Info />
                 })()
             }
-        </section>
+        </motion.section>
     )
 }

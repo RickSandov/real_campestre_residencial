@@ -3,6 +3,7 @@ import { Data } from "./GoogleComments";
 import Review from './Review';
 
 import styles from './index.module.scss';
+import { fadeIn } from "utils/motion";
 
 const variants = {
     animated: {
@@ -15,8 +16,15 @@ const variants = {
 export default function ReviewsSlider({ reviews, rating, totalRatings }: Data) {
 
     return (
-        <div
+        <motion.div
             className={styles["reviews-box"]}
+            variants={fadeIn('up', 'spring', 1.5, 1.5)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{
+                once: true,
+                amount: .2
+            }}
         >
             <motion.div
                 className={styles['reviews-slider']}>
@@ -35,7 +43,7 @@ export default function ReviewsSlider({ reviews, rating, totalRatings }: Data) {
                 </span>
             </div>
 
-        </div>
+        </motion.div>
 
     )
 }

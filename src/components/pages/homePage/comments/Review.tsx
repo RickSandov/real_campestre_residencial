@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ReviewType } from "./GoogleComments";
 
 import styles from './index.module.scss';
+import { fadeIn } from "utils/motion";
 
 
 export default function Review({ review }: { review: ReviewType }) {

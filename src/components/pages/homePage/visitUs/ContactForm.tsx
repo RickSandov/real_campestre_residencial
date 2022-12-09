@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import * as Yup from 'yup';
 import styles from './contactForm.module.scss';
+import { motion } from 'framer-motion';
+import { fadeIn } from 'utils/motion';
 
 
 const validationSchema = Yup.object({
@@ -53,7 +55,17 @@ export const ContactForm = () => {
     const formikProps = { initialValues, validationSchema, onSubmit };
 
     return (
-        <div className={styles.card} id='contacto' >
+        <motion.div
+            id='contacto'
+            className={styles.card}
+            variants={fadeIn('left', 'spring', .8, 1.5)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{
+                once: false,
+                amount: .2
+            }}
+        >
             <h2>Contáctanos</h2>
             <p>Envía el formulario y nosotros te contactamos.</p>
             <Formik {...formikProps}>
@@ -89,6 +101,6 @@ export const ContactForm = () => {
                     </form>
                 )}
             </Formik>
-        </div>
+        </motion.div>
     )
 }

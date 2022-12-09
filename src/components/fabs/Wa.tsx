@@ -1,11 +1,19 @@
 import { WaIcon } from 'components/icons'
 import Link from 'next/link'
 import styles from './index.module.scss'
+import { motion } from 'framer-motion';
+import { fabsVariants } from 'utils/motion';
 
 export const WaFab = () => {
     return (
-        <div
+        <motion.div
             className={`${styles.fab} ${styles.wa}`}
+            variants={fabsVariants(1.7)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{
+                once: true
+            }}
         >
             <a
                 href="https://wa.me/+526182590909"
@@ -14,6 +22,6 @@ export const WaFab = () => {
             >
                 <WaIcon />
             </a>
-        </div>
+        </motion.div>
     )
 }

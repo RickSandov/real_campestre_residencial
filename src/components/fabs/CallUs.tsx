@@ -1,10 +1,18 @@
 import { CallIcon } from 'components/icons'
 import Link from 'next/link'
 import styles from './index.module.scss'
+import { motion } from 'framer-motion';
+import { fabsVariants } from 'utils/motion';
 
 export const CallFab = () => {
     return (
-        <div
+        <motion.div
+            variants={fabsVariants(1.6)}
+            initial='hidden'
+            whileInView='show'
+            viewport={{
+                once: true
+            }}
             className={`${styles.fab} ${styles.call}`}
         >
             <a
@@ -14,6 +22,6 @@ export const CallFab = () => {
             >
                 <CallIcon />
             </a>
-        </div>
+        </motion.div>
     )
 }

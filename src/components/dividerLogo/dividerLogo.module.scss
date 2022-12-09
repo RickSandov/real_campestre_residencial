@@ -1,14 +1,18 @@
-@use"../../styles/colors";
+@use "../../styles/colors";
 
 .divider {
-    height: 10rem;
-    width: 100%;
-    background-color: colors.$bc;
-    display: grid;
-    place-items: center;
+  height: 10rem;
+  width: 100%;
+  background-color: colors.$bc;
+  display: grid;
+  place-items: center;
 
-    svg {
-        max-height: 60%;
-        max-width: 90%;
-    }
+  div {
+    height: 70%;
+    max-width: 90%;
+  }
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 }

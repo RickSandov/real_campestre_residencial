@@ -1,6 +1,8 @@
 import { Flower, LogoHandwrited } from 'components/icons';
 import Image from 'next/image';
 import styles from './services.module.scss';
+import { motion } from 'framer-motion';
+import { fadeIn } from 'utils/motion';
 
 interface Service {
     src: string;
@@ -48,14 +50,31 @@ export const Services = () => {
             <div className={styles.bg}>
                 <Flower fill='#E7EBEA' />
             </div>
-            <h2>
+            <motion.h2
+                variants={fadeIn('left', 'spring', .2, 1)}
+                initial='hidden'
+                whileInView='show'
+                viewport={{
+                    once: true,
+                    amount: .2
+                }}
+            >
                 Conoce
                 <LogoHandwrited />
-            </h2>
+            </motion.h2>
             <div className={styles.services}>
                 {
-                    services.map(({ src, title, text }) => (
-                        <article className={styles.service} key={src} >
+                    services.map(({ src, title, text }, index) => (
+                        <motion.article
+                            className={styles.service} key={src}
+                            variants={fadeIn('up', 'spring', index * .1, 1)}
+                            initial='hidden'
+                            whileInView='show'
+                            viewport={{
+                                once: true,
+                                amount: .2
+                            }}
+                        >
                             <div className={styles.image}>
                                 <Image src={src} alt={title} layout='fill' objectFit='cover' title={title} />
                             </div>
@@ -68,7 +87,7 @@ export const Services = () => {
                                     </span>
                                 ))}
                             </p>
-                        </article>
+                        </motion.article>
                     ))
                 }
             </div>

@@ -8,6 +8,8 @@ import styles from './plan.module.scss'
 import { InfoCard } from './InfoCard';
 import { HomeLotsContext } from 'contexts';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import { motion } from 'framer-motion';
+import { fadeIn } from 'utils/motion';
 
 export const Plan = () => {
 
@@ -28,8 +30,20 @@ export const Plan = () => {
     }, []);
 
     return (
-        <section id='plano' className={styles.plan} >
-            <div ref={ref} className={styles.graphic}>
+        <section
+            id='plano'
+            className={styles.plan} >
+            <motion.div
+                ref={ref}
+                className={styles.graphic}
+                variants={fadeIn('right', 'spring', .2, 1.5)}
+                initial='hidden'
+                whileInView='show'
+                viewport={{
+                    once: true,
+                    amount: .2
+                }}
+            >
                 <PlanSvg>
                     {
                         lots.map(lot => (
@@ -61,7 +75,7 @@ export const Plan = () => {
                         Vendido
                     </li>
                 </ul>
-            </div>
+            </motion.div>
             <InfoCard />
         </section>
     )
