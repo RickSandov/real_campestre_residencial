@@ -30,6 +30,8 @@ body {
   scroll-behavior: smooth;
   overflow-y: var(--overflow);
   // @include mixins.scrollBar(5px);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 section,
