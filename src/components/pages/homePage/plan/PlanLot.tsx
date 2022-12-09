@@ -49,10 +49,10 @@ export const PlanLot = ({ lot }: Props) => {
         setSelectedLot(lot);
 
         // console.log(lot);
-        // const section = 'casa de prueba';
+        // const section = 'j';
 
         // // const area = prompt('area');
-        // const num = prompt('numero');
+        // // const num = prompt('numero');
         // // const type = ETypes.c;
         // // const typePrice = 3400;
         // // const typePrice = 3700;
@@ -65,7 +65,7 @@ export const PlanLot = ({ lot }: Props) => {
         // // const price = Number(area) * typePrice;
         // const lotInfo = {
         //     section,
-        //     num,
+        //     // num,
         //     // price,
         //     // area,
         //     // type,

@@ -13,7 +13,11 @@ export const sendEmail = async (information: IContactForm) => {
   const mailerResponse = await transporter.sendMail({
     from: '"Real Campestre Residencial" <i.s.ricardo.sandoval@gmail.com>',
     // to: information.email,
-    to: ["i.s.ricardo.sandoval@gmail.com", "alfabaluarte@gmail.com"],
+    to: [
+      "percyrv@gmail.com",
+      "alfabaluarte@gmail.com",
+      "i.s.ricardo.sandoval@gmail.com",
+    ],
     subject: `Solicitud de información (${information.name.split(" ")[0]}}: ${
       information.phoneNumber
     })`,

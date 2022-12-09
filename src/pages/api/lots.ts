@@ -36,7 +36,7 @@ export default async function handler(
     //   if (lotToEdit) {
     //     const { section, num, area, price, type, status } = lot;
     //     lotToEdit.section = section;
-    //     lotToEdit.num = num;
+    //     // lotToEdit.num = num;
     //     // lotToEdit.area = area;
     //     // lotToEdit.price = price;
     //     // lotToEdit.type = type;
