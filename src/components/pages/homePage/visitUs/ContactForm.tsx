@@ -62,7 +62,7 @@ export const ContactForm = () => {
             initial='hidden'
             whileInView='show'
             viewport={{
-                once: false,
+                once: true,
                 amount: .2
             }}
         >
