@@ -5,7 +5,7 @@ import { DownIcon } from '../../../icons/Down';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { fadeIn, navVariants, staggerContainer } from 'utils/motion';
+import { fadeIn, navVariants, staggerContainer, zoomIn } from 'utils/motion';
 
 export const Hero = () => {
     return (
@@ -30,7 +30,7 @@ export const Hero = () => {
             >
                 <motion.div
                     className={styles.icon}
-                    variants={fadeIn('up', 'spring', .2, 1)}
+                    variants={zoomIn(.2, .65)}
                     initial='hidden'
                     whileInView='show'
                     viewport={{
@@ -41,7 +41,7 @@ export const Hero = () => {
                     <Flower />
                 </motion.div>
                 <motion.h2
-                    variants={fadeIn('up', 'spring', .3, 1)}
+                    variants={fadeIn('up', 'spring', .5, 1)}
                     initial='hidden'
                     whileInView='show'
                     viewport={{
@@ -51,7 +51,7 @@ export const Hero = () => {
                 >
                     Real Campestre
                     <motion.span
-                        variants={fadeIn('up', 'spring', .4, 1)}
+                        variants={fadeIn('up', 'spring', .6, 1)}
                         initial='hidden'
                         whileInView='show'
                         viewport={{

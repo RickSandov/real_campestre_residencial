@@ -8,7 +8,7 @@ export const WaFab = () => {
     return (
         <motion.div
             className={`${styles.fab} ${styles.wa}`}
-            variants={fabsVariants(1.7)}
+            variants={fabsVariants(1.5)}
             initial='hidden'
             whileInView='show'
             viewport={{

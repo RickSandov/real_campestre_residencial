@@ -7,7 +7,7 @@ import { fabsVariants, fadeIn } from 'utils/motion';
 export const FbFab = () => {
     return (
         <motion.div
-            variants={fabsVariants(1.5)}
+            variants={fabsVariants(1.7)}
             initial='hidden'
             whileInView='show'
             viewport={{

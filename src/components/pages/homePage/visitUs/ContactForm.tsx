@@ -58,7 +58,7 @@ export const ContactForm = () => {
         <motion.div
             id='contacto'
             className={styles.card}
-            variants={fadeIn('left', 'spring', .8, 1.5)}
+            variants={fadeIn('left', 'spring', .5, 1.5)}
             initial='hidden'
             whileInView='show'
             viewport={{

@@ -19,7 +19,7 @@ export const VisitUs = () => {
             <TopTitle alignment='center' span='visítanos' title='conoce tu nuevo fraccionamiento' />
             <motion.div
                 className={styles.map}
-                variants={fadeIn('up', 'spring', .8, 1.5)}
+                variants={fadeIn('up', 'spring', .5, 1.5)}
                 initial='hidden'
                 whileInView='show'
                 viewport={{
