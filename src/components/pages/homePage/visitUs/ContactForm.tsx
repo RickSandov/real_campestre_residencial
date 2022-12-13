@@ -55,7 +55,7 @@ export const ContactForm = () => {
     const formikProps = { initialValues, validationSchema, onSubmit };
 
     return (
-        <motion.div
+        <motion.section
             id='contacto'
             className={styles.card}
             variants={fadeIn('left', 'spring', .5, 1.5)}
@@ -101,6 +101,6 @@ export const ContactForm = () => {
                     </form>
                 )}
             </Formik>
-        </motion.div>
+        </motion.section>
     )
 }

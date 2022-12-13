@@ -25,6 +25,7 @@ const galleries: Gallery[] = [
             '/assets/pista.png',
             '/assets/pista1.jpeg',
             '/assets/pista2.jpeg',
+            '/assets/pista3.jpeg',
         ]
     },
     {
@@ -34,6 +35,15 @@ const galleries: Gallery[] = [
             '/assets/golf1.jpeg',
             '/assets/golf2.jpeg',
             '/assets/golf3.jpeg',
+            '/assets/golf4.jpeg',
+        ]
+    },
+    {
+        name: 'acceso',
+        images: [
+            '/assets/fachada.jpeg',
+            '/assets/fachada1.jpeg',
+            '/assets/fachada2.jpeg',
         ]
     },
     {
