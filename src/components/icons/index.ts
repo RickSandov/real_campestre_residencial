@@ -6,3 +6,4 @@ export * from "./Down";
 export * from "./Triangle";
 export * from "./Facebook";
 export * from "./Map";
+export * from "./ChevronRight";

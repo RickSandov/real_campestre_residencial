@@ -5,7 +5,8 @@ import { SidebarTitle } from "./SidebarTitle";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { fadeInChildren, fadeInChild } from "utils/motion";
-import { Map } from "components/icons";
+import { Map, ChevronRight } from "components/icons";
+
 
 export const Sidebar = () => {
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
@@ -50,7 +51,7 @@ export const Sidebar = () => {
         className={styles.rightArrow}
         onClick={toggleSidebarMobile}
       >
-
+        <ChevronRight />
       </motion.div>
     </motion.div>
   );
