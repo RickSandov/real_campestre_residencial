@@ -117,7 +117,7 @@ export const Galleries = () => {
                                         }
                                     </h4>
                                     <div className={styles.image}>
-                                        <Image src={images[0]} layout='fill' objectFit="cover" />
+                                        <Image alt={name} src={images[0]} layout='fill' objectFit="cover" />
                                     </div>
                                 </SwiperSlide>
                             )
