@@ -21,6 +21,7 @@
 
 @mixin card {
   border-radius: $div-border-radius;
+  background-color: white;
   @include boxShadow;
 }
 

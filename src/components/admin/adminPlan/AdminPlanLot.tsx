@@ -2,7 +2,7 @@ import { ILot } from 'interfaces'
 import { api } from 'lib'
 import React, { useRef, useEffect, MouseEvent, useMemo, useContext } from 'react'
 
-import styles from './plan.module.scss'
+import styles from './adminPlan.module.scss'
 import { ETypes, EStatus } from 'interfaces';
 import { HomeLotsContext } from 'contexts';
 
@@ -22,6 +22,21 @@ export const PlanLot = ({ lot }: Props) => {
     useEffect(() => {
         if (ref.current) {
             ref.current.innerHTML += lot.xml;
+
+            if (lot.status === EStatus.reserved || lot.status === EStatus.sold) {
+                const color = lot.status === EStatus.reserved ? styles.red : styles.black
+                const roomBounds = ref.current.getBBox();
+                const NS = ref.current.namespaceURI;
+
+                const circle = document.createElementNS(NS, 'circle');
+                circle.setAttribute("cx", String(roomBounds.x + roomBounds.width / 2));
+                circle.setAttribute("cy", String(roomBounds.y + roomBounds.height / 2));
+                circle.setAttribute("r", '4');
+                circle.setAttribute('id', String(lot.num));
+                circle.classList.add(styles.circle);
+                circle.classList.add(color);
+                ref.current.appendChild(circle);
+            }
         }
     }, [])
 

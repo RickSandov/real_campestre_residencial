@@ -5,3 +5,4 @@ export * from "./Flower";
 export * from "./Down";
 export * from "./Triangle";
 export * from "./Facebook";
+export * from "./Map";

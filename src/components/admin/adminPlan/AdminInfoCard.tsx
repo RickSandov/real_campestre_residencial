@@ -1,12 +1,11 @@
-import styles from './plan.module.scss'
+import styles from './adminPlan.module.scss'
 import { useContext } from 'react';
 import { HomeLotsContext } from 'contexts';
-import { EStatus } from 'interfaces';
+import { EStatus, ETypes } from 'interfaces';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getLotTypeKeyByValue } from 'helpers';
 import { motion } from 'framer-motion';
 import { fadeIn } from 'utils/motion';
-import { ETypes } from 'interfaces/Lot';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (

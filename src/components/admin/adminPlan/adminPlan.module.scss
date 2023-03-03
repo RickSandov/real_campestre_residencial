@@ -1,6 +1,6 @@
-@use "../../../../styles/abstracts/variables";
-@use "../../../../styles/abstracts/mixins";
-@use "../../../../styles/colors";
+@use "styles/abstracts/variables";
+@use "styles/abstracts/mixins";
+@use "styles/colors";
 
 .plan {
   display: flex;
@@ -96,7 +96,7 @@
         }
         &.sold span {
           border: 2px solid colors.$primary-dark;
-          background-color: rgba(204, 204, 204, 0.59);
+          background-color: white;
         }
       }
     }

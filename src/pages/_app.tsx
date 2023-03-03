@@ -3,8 +3,12 @@ import Head from 'next/head'
 import { Toaster } from 'react-hot-toast';
 
 import '../styles/globals.scss';
+import { Sidebar } from '../components/sidebar/Sidebar';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+
+  const route = router.asPath;
+
   return (
     <>
       <Head>
@@ -13,7 +17,18 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="google-site-verification" content="7Ee6rABMfMaLv56qEsOc9Ys0gselMDJwMQ1M3-aOPRM" />
       </Head>
-      <Component {...pageProps} />
+      {
+        route.includes('/admin')
+          ?
+          <div className="container">
+            <Sidebar />
+            <div className="children">
+              <Component {...pageProps} />
+            </div>
+          </div>
+          :
+          <Component {...pageProps} />
+      }
       <Toaster
         toastOptions={{
           className: 'toast'
