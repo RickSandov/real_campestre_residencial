@@ -12,7 +12,7 @@ export const Footer = () => {
                 <div className={styles.content}>
                     <p>un proyecto de</p>
                     <div className={styles.alfa}>
-                        <Image src='/assets/alfa_baluarte.png' layout='fill' />
+                        <Image alt='Alfa Baluarte' src='/assets/alfa_baluarte.png' layout='fill' />
                     </div>
                 </div>
             </div>
