@@ -3,7 +3,7 @@ import { api } from 'lib'
 import React, { useRef, useEffect, MouseEvent, useMemo, useContext } from 'react'
 
 import styles from './plan.module.scss'
-import { ETypes, EStatus } from 'interfaces';
+import { lotType, statusType } from 'interfaces';
 import { HomeLotsContext } from 'contexts';
 
 //styles on globals.scss
@@ -38,7 +38,7 @@ export const PlanLot = ({ lot }: Props) => {
 
         // // const area = prompt('area');
         // // const num = prompt('numero');
-        // // const type = ETypes.c;
+        // // const type = lotType.c;
         // // const typePrice = 3400;
         // // const typePrice = 3700;
         // // const typePrice = 4000;
@@ -46,7 +46,7 @@ export const PlanLot = ({ lot }: Props) => {
         // // Tipo a precio 3400
         // // Tipo b precio 3700
 
-        // // const status = EStatus.payed;
+        // // const status = statusType.payed;
         // // const price = Number(area) * typePrice;
         // const lotInfo = {
         //     section,
@@ -64,11 +64,11 @@ export const PlanLot = ({ lot }: Props) => {
         // })
     }
 
-    const colorClass = useMemo(() => lot.status === EStatus.available ? (lot.type === ETypes.a ? 'a' : lot.type === ETypes.b ? 'b' : 'c') : null, []);
+    const colorClass = useMemo(() => lot.status === statusType.available ? (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c') : null, []);
 
     return (
         <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => onClick(lot)}>
-            <title>{lot.status !== EStatus.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
+            <title>{lot.status !== statusType.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
             {/* <circle cx="510.95001220703125" cy="124.95000457763672" r="5" className="circle"></circle> */}
         </g>
     )

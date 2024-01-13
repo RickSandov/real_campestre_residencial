@@ -1,0 +1,14 @@
+@use "styles/colors";
+@use "styles/abstracts/mixins";
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  button {
+    @include mixins.button(colors.$primary, colors.$type-c, white);
+    color: white;
+  }
+}

@@ -29,10 +29,9 @@ export const SidebarItem: React.FC<ISidebarItemProps> = ({
   };
 
   const isActive = useMemo(
-    () => router.pathname === path,
-    [router.pathname, path]
+    () => router.asPath === path,
+    [router.asPath, path]
   );
-
 
   return (
     <motion.div

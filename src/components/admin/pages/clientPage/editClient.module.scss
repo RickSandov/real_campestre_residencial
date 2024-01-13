@@ -1,0 +1,38 @@
+@use "styles/abstracts/mixins";
+@use "styles/colors";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    button {
+      @include mixins.button(colors.$primary, colors.$type-c, white);
+      color: white;
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(171, 171, 171);
+        &:hover {
+          background-color: rgb(171, 171, 171);
+        }
+      }
+    }
+  }
+}

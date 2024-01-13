@@ -1,0 +1,52 @@
+@use "styles/colors";
+@use "styles/abstracts/mixins";
+@use "styles/abstracts/variables";
+
+.back {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.top {
+  margin: 3rem 0;
+}
+
+.container {
+  @include mixins.card;
+  width: 100%;
+  min-height: 20rem;
+  margin: 1rem 0;
+  padding: 3rem;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.docs {
+  h3 {
+    font-family: variables.$font;
+    margin-bottom: 4rem;
+  }
+
+  .empty {
+    text-align: center;
+  }
+}
+
+.infoItem {
+  border-bottom: 1px solid colors.$bc;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+  strong {
+    //   margin-left: 1rem;
+  }
+}

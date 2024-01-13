@@ -1,5 +1,5 @@
 import { HomeLotsState } from "./";
-import { ILot, EStatus } from "interfaces";
+import { ILot, statusType } from "interfaces";
 
 type HomeLotsActionType = {
   type: "[HomeLots] - set selected lot";
@@ -19,7 +19,7 @@ export const homeLotsReducer = (
           selectedLot: null,
         };
       }
-      if (lot.status === EStatus.available) {
+      if (lot.status === statusType.available) {
         return {
           ...state,
           selectedLot: lot,

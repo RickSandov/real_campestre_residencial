@@ -1,5 +1,5 @@
 import { PlanSvg } from 'components/icons/PlanSvg'
-import { ETypes, ILot } from 'interfaces';
+import { lotType, ILot } from 'interfaces';
 import { api } from 'lib';
 import React, { useContext, useEffect, useState } from 'react'
 import { PlanLot } from './PlanLot';
@@ -60,7 +60,7 @@ export const Plan = () => {
                 }
                 <ul className={styles.types}>
                     {
-                        Object.values(ETypes).map((text, index) => {
+                        Object.values(lotType).map((text, index) => {
                             const type = index === 0 ? 'a' : index === 1 ? 'b' : 'c'
                             return (
                                 <li key={text} className={styles[type]} >

@@ -1,7 +1,8 @@
-import { EStatus, ETypes, ILot } from "interfaces";
+import { ILot, lotType, lotTypeArray } from "interfaces";
 import { Schema, model, models, Model } from "mongoose";
+import { statusType, statusTypeArray } from "../../interfaces/Lot";
 
-const LotSchema = new Schema<ILot>({
+export const LotSchema = new Schema<ILot>({
   xml: {
     type: String,
     required: true,
@@ -24,16 +25,13 @@ const LotSchema = new Schema<ILot>({
   },
   type: {
     type: String,
-    default: ETypes.a,
-    enum: Object.values(ETypes),
+    enum: lotTypeArray,
+    default: lotType.a,
   },
   status: {
     type: String,
-    default: EStatus.available,
-    enum: Object.values(EStatus),
-  },
-  signDate: {
-    type: String,
+    enum: statusTypeArray,
+    default: statusType.available,
   },
   buyer: {
     type: Schema.Types.ObjectId,
@@ -42,9 +40,6 @@ const LotSchema = new Schema<ILot>({
   seller: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },
-  vendorName: {
-    type: String,
   },
 });
 

@@ -23,6 +23,7 @@
   border-radius: $div-border-radius;
   background-color: white;
   @include boxShadow;
+  padding: 3rem;
 }
 
 @mixin respond($breakpoint) {

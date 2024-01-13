@@ -1,0 +1,30 @@
+@use "styles/abstracts/mixins.scss";
+@use "styles/colors.scss";
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  flex: 1;
+  @include mixins.button(colors.$primary, colors.$bc, white);
+  color: white;
+
+  &.cancel {
+    @include mixins.button(colors.$red, white, #6c0101);
+    color: white;
+  }
+
+  &:disabled {
+    background-color: colors.$disabled-gray;
+    cursor: not-allowed;
+    color: white;
+    &:hover {
+      background-color: colors.$disabled-gray;
+      cursor: not-allowed;
+      color: white;
+    }
+  }
+}

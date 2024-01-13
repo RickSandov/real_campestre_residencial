@@ -1,20 +1,27 @@
+import { Types } from "mongoose";
+import { ObjectValues } from "interfaces";
 import { ILot } from "./Lot";
 
-export const enum ERoles {
-  admin = "administrador",
-  seller = "vendedor",
-}
+export const roleType = {
+  admin: "administrador",
+  seller: "vendedor",
+} as const;
+
+export const roleTypeArray = Object.values(roleType);
+
+export type RoleType = ObjectValues<typeof roleType>;
+
 export interface IDisplayUser {
   _id: string;
   dispName: string;
-  role: ERoles;
+  role: RoleType;
   nickname: string;
   phoneNumber: string;
   totalReservedLots: number;
 }
 export interface IUser extends IDisplayUser {
   password: string;
-  reservedLots: string[]; // Lot id []
+  reservedLots: string[] | Types.ObjectId[]; // Lot id []
 }
 
 export interface IFullUser extends IDisplayUser {

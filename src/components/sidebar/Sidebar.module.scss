@@ -9,12 +9,12 @@
   padding: 1rem 0;
   transition: width 0.3s ease-in-out;
   width: 4rem;
-
   position: fixed;
   z-index: 100;
   &.showSidebarMobile {
     width: 80%;
   }
+  box-shadow: -0.1rem 0 1rem rgba(colors.$bc, 0.3);
 
   @include mixins.respond(from-tab-port) {
     // min-width: 20vw;

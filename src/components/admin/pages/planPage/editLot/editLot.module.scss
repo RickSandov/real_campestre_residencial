@@ -1,0 +1,26 @@
+@use "styles/colors.scss";
+
+.title {
+  margin-bottom: 4rem;
+  strong {
+    color: colors.$text-dark;
+    text-transform: capitalize;
+  }
+}
+
+.container {
+  form {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    > div {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.label {
+  font-size: 1.4rem;
+  color: colors.$primary;
+}

@@ -1,11 +1,11 @@
-import styles from './adminPlan.module.scss'
 import { useContext } from 'react';
-import { HomeLotsContext } from 'contexts';
-import { EStatus, ETypes } from 'interfaces';
+import { lotType, statusType } from 'interfaces';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getLotTypeKeyByValue } from 'helpers';
 import { motion } from 'framer-motion';
 import { fadeIn } from 'utils/motion';
+import { AdminContext } from 'contexts/admin';
+import styles from './adminPlan.module.scss'
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -13,14 +13,12 @@ const Item = ({ title, text, className }: { title: string; text: string; classNa
     )
 }
 
-export const InfoCard = () => {
-    const { selectedLot } = useContext(HomeLotsContext);
-    const [ref] = useAutoAnimate<HTMLDivElement>();
+export const AdminInfoCard = ({ setEditLot }: { setEditLot: (value: boolean) => void }) => {
+    const { selectedLot } = useContext(AdminContext);
 
     return (
         <motion.section
             id='info-plano'
-            ref={ref}
             className={styles.card}
             variants={fadeIn('left', 'spring', .2, 1.5)}
             initial='hidden'
@@ -35,7 +33,7 @@ export const InfoCard = () => {
                     <h4>Selecciona un terreno para ver su información</h4>
                 ) : (() => {
                     const { area, num, type, status, price, section } = selectedLot;
-                    const sold = status !== EStatus.available;
+                    const sold = status !== statusType.available;
                     const Info = () => (
                         <>
                             <h4 className={sold ? styles.sold : styles.infoTitle} >
@@ -58,23 +56,20 @@ export const InfoCard = () => {
                                 title='Área'
                                 text={String(area) + 'm²'}
                             />
-                            {
-                                !sold && (
-                                    <>
-                                        {
-                                            type !== ETypes.c && (
-                                                <Item
-                                                    title='Precio'
-                                                    text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                                />
-                                            )
-                                        }
-                                        <a href='#contacto' className={styles.contact} >
-                                            Contáctanos
-                                        </a>
-                                    </>
-                                )
-                            }
+
+                            <Item
+                                title='Precio'
+                                text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            />
+
+                            <Item
+                                title='Estatus'
+                                text={status}
+                            />
+
+                            <button className={styles.edit} onClick={() => setEditLot(true)} >
+                                Actualizar información
+                            </button>
                         </>
                     )
                     return <Info />

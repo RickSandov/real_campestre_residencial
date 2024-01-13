@@ -1,4 +1,4 @@
-import { EStatus, ETypes, ILot } from "interfaces";
+import { ILot } from "interfaces";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connect, disconnect } from "server/database";
 import { Lot } from "server/models";

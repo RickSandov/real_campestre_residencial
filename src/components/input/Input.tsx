@@ -25,7 +25,7 @@ export const Input = ({ className = "", name, type = 'text', placeholder, nameDi
 
     return (
         <>
-            <div className={`${styles.container} ${size ? styles[size] : ''}`} >
+            <div className={`${styles.container} ${size ? styles[size] : ''} ${className} `} >
                 {
                     handleChange ?
                         <Field

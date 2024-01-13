@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 
 import '../styles/globals.scss';
 import { Sidebar } from '../components/sidebar/Sidebar';
+import { AdminProvider } from 'contexts/admin';
 
 export default function App({ Component, pageProps, router }: AppProps) {
 
@@ -20,12 +21,14 @@ export default function App({ Component, pageProps, router }: AppProps) {
       {
         route.includes('/admin')
           ?
-          <div className="container">
-            <Sidebar />
-            <div className="children">
-              <Component {...pageProps} />
+          <AdminProvider>
+            <div className="container">
+              <Sidebar />
+              <div className="children">
+                <Component {...pageProps} />
+              </div>
             </div>
-          </div>
+          </AdminProvider>
           :
           <Component {...pageProps} />
       }

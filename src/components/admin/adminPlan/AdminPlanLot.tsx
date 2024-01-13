@@ -3,8 +3,8 @@ import { api } from 'lib'
 import React, { useRef, useEffect, MouseEvent, useMemo, useContext } from 'react'
 
 import styles from './adminPlan.module.scss'
-import { ETypes, EStatus } from 'interfaces';
-import { HomeLotsContext } from 'contexts';
+import { lotType, statusType } from 'interfaces';
+import { AdminContext } from 'contexts/admin';
 
 //styles on globals.scss
 
@@ -12,19 +12,19 @@ interface Props {
     lot: ILot
 }
 
-export const PlanLot = ({ lot }: Props) => {
+export const AdminPlanLot = ({ lot }: Props) => {
 
     const ref = useRef<SVGAElement>(null);
-    const { setSelectedLot, selectedLot } = useContext(HomeLotsContext);
+    const { setSelectedLot, selectedLot } = useContext(AdminContext);
 
     const isSelected = selectedLot?._id === lot._id;
 
     useEffect(() => {
-        if (ref.current) {
+        if (ref.current || (ref.current && selectedLot?._id === lot._id)) {
             ref.current.innerHTML += lot.xml;
 
-            if (lot.status === EStatus.reserved || lot.status === EStatus.sold) {
-                const color = lot.status === EStatus.reserved ? styles.red : styles.black
+            if (lot.status === statusType.reserved || lot.status === statusType.sold) {
+                const color = lot.status === statusType.reserved ? styles.red : styles.black
                 const roomBounds = ref.current.getBBox();
                 const NS = ref.current.namespaceURI;
 
@@ -38,7 +38,7 @@ export const PlanLot = ({ lot }: Props) => {
                 ref.current.appendChild(circle);
             }
         }
-    }, [])
+    }, [lot.status])
 
     const onClick = (lot: ILot) => {
 
@@ -47,44 +47,13 @@ export const PlanLot = ({ lot }: Props) => {
         }
 
         setSelectedLot(lot);
-
-        // console.log(lot);
-        // const section = 'j';
-
-        // // const area = prompt('area');
-        // // const num = prompt('numero');
-        // // const type = ETypes.c;
-        // // const typePrice = 3400;
-        // // const typePrice = 3700;
-        // // const typePrice = 4000;
-
-        // // Tipo a precio 3400
-        // // Tipo b precio 3700
-
-        // // const status = EStatus.payed;
-        // // const price = Number(area) * typePrice;
-        // const lotInfo = {
-        //     section,
-        //     // num,
-        //     // price,
-        //     // area,
-        //     // type,
-        //     // status,
-        //     _id: lot._id
-        // }
-        // api.patch('lots', {
-        //     lot: lotInfo
-        // }).then(res => {
-        //     console.log(res.status)
-        // })
     }
 
-    const colorClass = useMemo(() => lot.status === EStatus.available ? (lot.type === ETypes.a ? 'a' : lot.type === ETypes.b ? 'b' : 'c') : null, []);
+    const colorClass = useMemo(() => lot.status === statusType.available ? (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c') : null, [lot.status]);
 
     return (
         <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => onClick(lot)}>
-            <title>{lot.status !== EStatus.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
-            {/* <circle cx="510.95001220703125" cy="124.95000457763672" r="5" className="circle"></circle> */}
+            <title>{lot.status !== statusType.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
         </g>
     )
 }

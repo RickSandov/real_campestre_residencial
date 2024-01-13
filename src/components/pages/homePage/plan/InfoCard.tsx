@@ -1,12 +1,11 @@
 import styles from './plan.module.scss'
 import { useContext } from 'react';
 import { HomeLotsContext } from 'contexts';
-import { EStatus } from 'interfaces';
+import { lotType, statusType } from 'interfaces';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { getLotTypeKeyByValue } from 'helpers';
 import { motion } from 'framer-motion';
 import { fadeIn } from 'utils/motion';
-import { ETypes } from 'interfaces/Lot';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -36,7 +35,7 @@ export const InfoCard = () => {
                     <h4>Selecciona un terreno para ver su información</h4>
                 ) : (() => {
                     const { area, num, type, status, price, section } = selectedLot;
-                    const sold = status !== EStatus.available;
+                    const sold = status !== statusType.available;
                     const Info = () => (
                         <>
                             <h4 className={sold ? styles.sold : styles.infoTitle} >
@@ -63,7 +62,7 @@ export const InfoCard = () => {
                                 !sold && (
                                     <>
                                         {
-                                            type !== ETypes.c && (
+                                            type !== lotType.c && (
                                                 <Item
                                                     title='Precio'
                                                     text={'$' + price.toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}

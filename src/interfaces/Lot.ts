@@ -1,17 +1,26 @@
+import { ObjectValues } from "interfaces";
 import { Schema } from "mongoose";
 
-export enum ETypes {
-  a = "tipo a",
-  b = "tipo b",
-  c = "comercial",
-}
+export const lotType = {
+  a: "tipo a",
+  b: "tipo b",
+  c: "comercial",
+} as const;
 
-export enum EStatus {
-  payed = "pagado",
-  sold = "vendido",
-  reserved = "reservado",
-  available = "disponible",
-}
+export const lotTypeArray = Object.values(lotType);
+
+export type LotType = ObjectValues<typeof lotType>;
+
+export const statusType = {
+  payed: "pagado",
+  sold: "vendido",
+  reserved: "reservado",
+  available: "disponible",
+} as const;
+
+export const statusTypeArray = Object.values(statusType);
+
+export type StatusType = ObjectValues<typeof statusType>;
 
 export interface ILot {
   _id: string;
@@ -20,10 +29,8 @@ export interface ILot {
   num: number;
   area: number;
   price: number;
-  type: ETypes;
-  status: EStatus;
-  signDate?: string;
+  type: LotType;
+  status: StatusType;
   buyer?: string | Schema.Types.ObjectId;
   seller?: string | Schema.Types.ObjectId;
-  vendorName?: string;
 }

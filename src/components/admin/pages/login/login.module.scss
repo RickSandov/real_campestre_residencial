@@ -1,0 +1,52 @@
+@use "styles/abstracts/mixins";
+@use "styles/colors";
+
+.background {
+  height: 100vh;
+  width: 100vw;
+  //   background: rgb(141, 187, 208);
+  //   background: linear-gradient(
+  //     90deg,
+  //     rgba(141, 187, 208, 1) 0%,
+  //     rgba(176, 199, 116, 1) 50%,
+  //     rgba(234, 209, 146, 1) 100%
+  //   );
+  background-color: colors.$bc;
+  display: grid;
+  place-items: center;
+}
+
+.login {
+  @include mixins.card;
+  min-height: 55rem;
+  max-height: 80vh;
+  min-width: 40rem;
+  max-width: 90vw;
+  padding: 5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    width: 100%;
+    text-align: center;
+    svg {
+      max-width: 10rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .body {
+    .input {
+      margin-bottom: 3rem;
+    }
+    button {
+      @include mixins.button(colors.$primary, colors.$type-c, white);
+      color: white;
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+}

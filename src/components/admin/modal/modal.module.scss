@@ -1,0 +1,40 @@
+@use "styles/abstracts/mixins";
+@use "styles/colors";
+
+.invisible {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 101;
+  display: grid;
+  place-items: center;
+
+  @include mixins.transition;
+
+  &.active {
+    pointer-events: all;
+    background-color: colors.$blur;
+  }
+}
+
+.modal {
+  width: 60rem;
+  max-width: 90%;
+  height: 40rem;
+  max-height: 90%;
+  @include mixins.card;
+  padding: 2rem;
+  position: relative;
+  overflow-y: scroll;
+
+  .close {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}

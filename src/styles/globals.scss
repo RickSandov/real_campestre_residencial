@@ -1,4 +1,5 @@
 @import "./abstracts/mixins";
+@import "./abstracts/variables";
 @import "./animations";
 @import "./base";
 @import "./colors";
@@ -38,6 +39,10 @@
   width: calc(100% - 4rem);
 
   padding: 2rem;
+
+  h1 {
+    font-family: $font;
+  }
 
   @include respond(from-tab-port) {
     margin-left: 0;

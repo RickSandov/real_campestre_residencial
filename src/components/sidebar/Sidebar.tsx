@@ -1,15 +1,18 @@
-import Image from "next/image";
+
 import styles from "./Sidebar.module.scss";
 import { ISidebarItemProps, SidebarItem } from "./SidebarItem";
 import { SidebarTitle } from "./SidebarTitle";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { fadeInChildren, fadeInChild } from "utils/motion";
-import { Map, ChevronRight } from "components/icons";
+import { Map, ChevronRight, Clients } from "components/icons";
+import { AdminContext } from "contexts/admin";
 
 
 export const Sidebar = () => {
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
+
+  const { routes } = useContext(AdminContext);
 
   const toggleSidebarMobile = () => {
     setShowSidebarMobile(!showSidebarMobile);
@@ -21,6 +24,11 @@ export const Sidebar = () => {
       path: "/admin",
       Icon: Map
     },
+    // {
+    //   label: "Clientes",
+    //   path: `/admin/${routes.clients}`,
+    //   Icon: Clients
+    // },
   ];
 
   return (
@@ -41,10 +49,6 @@ export const Sidebar = () => {
           />
         ))}
       </div>
-
-      {/* <motion.div variants={fadeInChild()}>
-        <Line />
-      </motion.div> */}
 
       <motion.div
         variants={fadeInChild()}

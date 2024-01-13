@@ -1,11 +1,10 @@
-import { AdminPlan } from 'components/admin'
-import React from 'react'
+import { PlanPage } from "components/admin/pages"
+
+
 
 const Admin = () => {
     return (
-        <>
-            <AdminPlan />
-        </>
+        <PlanPage />
     )
 }
 
