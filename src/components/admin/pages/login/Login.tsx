@@ -37,7 +37,11 @@ export const Login = () => {
                 Router.push('/admin')
                 return `Hola, ${user.dispName}`
             },
-            error: 'El usuario no existe, revisa bien tus credenciales'
+            error: (error) => {
+                console.log({ loginError: error })
+
+                return 'El usuario no existe, revisa bien tus credenciales'
+            }
         });
     }
 
