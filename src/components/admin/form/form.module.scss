@@ -10,10 +10,12 @@
 .button {
   flex: 1;
   @include mixins.button(colors.$primary, colors.$bc, white);
+  font-size: 1.5rem;
   color: white;
 
   &.cancel {
     @include mixins.button(colors.$red, white, #6c0101);
+    font-size: 1.5rem;
     color: white;
   }
 
