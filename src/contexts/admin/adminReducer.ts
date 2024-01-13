@@ -3,7 +3,7 @@ import { AdminState } from "./";
 
 type AdminActionType =
   | { type: "[Admin] - set lots"; payload: ILot[] }
-  | { type: "[Admin] - set selected lot"; payload: ILot }
+  | { type: "[Admin] - set selected lot"; payload: ILot | null }
   | { type: "[Admin] - set clients route"; payload: string }
   | { type: "[Admin] - set is loading"; payload: boolean }
   | {

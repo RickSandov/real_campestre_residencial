@@ -42,7 +42,7 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         payload: isLoading
     }))
 
-    const setSelectedLot = (lot: ILot) => (dispatch({
+    const setSelectedLot = (lot: ILot | null) => (dispatch({
         type: '[Admin] - set selected lot',
         payload: lot
     }))
