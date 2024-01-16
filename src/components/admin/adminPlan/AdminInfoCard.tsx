@@ -33,11 +33,17 @@ export const AdminInfoCard = ({ setEditLot }: { setEditLot: (value: boolean) => 
                     <h4>Selecciona un terreno para ver su información</h4>
                 ) : (() => {
                     const { area, num, type, status, price, section } = selectedLot;
-                    const sold = status !== statusType.available;
+                    // const sold = status !== statusType.available;
+                    const statusMessage =
+                        status === statusType.available ? 'Resumen del Terreno'
+                            : status === statusType.reserved ? 'Terreno reservado'
+                                : status === statusType.sold ? 'Terreno vendido' : 'Terreno pagado'
+
+
                     const Info = () => (
                         <>
-                            <h4 className={sold ? styles.sold : styles.infoTitle} >
-                                {sold ? 'Terreno vendido' : 'Resumen del Terreno'}
+                            <h4 className={status === statusType.sold ? styles.sold : styles.infoTitle} >
+                                {statusMessage}
                             </h4>
                             <Item
                                 title='Manzana'

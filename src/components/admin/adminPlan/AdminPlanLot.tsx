@@ -24,7 +24,7 @@ export const AdminPlanLot = ({ lot }: Props) => {
             ref.current.innerHTML += lot.xml;
 
             if (lot.status === statusType.reserved || lot.status === statusType.sold) {
-                const color = lot.status === statusType.reserved ? styles.red : styles.black
+                const color = lot.status === statusType.reserved ? styles.black : styles.red
                 const roomBounds = ref.current.getBBox();
                 const NS = ref.current.namespaceURI;
 
@@ -49,11 +49,11 @@ export const AdminPlanLot = ({ lot }: Props) => {
         setSelectedLot(lot);
     }
 
-    const colorClass = useMemo(() => lot.status === statusType.available ? (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c') : null, [lot.status]);
+    const colorClass = useMemo(() => (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c'), [lot.status]);
 
     return (
         <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => onClick(lot)}>
-            <title>{lot.status !== statusType.available ? 'Vendido' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
+            <title>{lot.status === statusType.sold ? 'Vendido' : lot.status === statusType.reserved ? 'reservado' : `lote: ${lot.num}, manzana: ${lot.section}`}</title>
         </g>
     )
 }
