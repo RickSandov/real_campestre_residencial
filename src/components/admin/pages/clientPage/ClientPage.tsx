@@ -25,6 +25,7 @@ export const ClientPage = ({ client }: { client: IClient }) => {
 
     const goBack = () => {
         setClientsRoute('clientes');
+        console.log('go back clicked')
         Router.push('/admin/clientes')
     }
 

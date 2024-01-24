@@ -24,11 +24,11 @@ export const Sidebar = () => {
       path: "/admin",
       Icon: Map
     },
-    // {
-    //   label: "Clientes",
-    //   path: `/admin/${routes.clients}`,
-    //   Icon: Clients
-    // },
+    {
+      label: "Clientes",
+      path: `/admin/${routes.clients}`,
+      Icon: Clients
+    },
   ];
 
   return (

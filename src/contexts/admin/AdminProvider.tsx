@@ -112,7 +112,6 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
 
     const postClientUpdate = ({ phoneNumber, name, _id }: { phoneNumber: string, name: string, _id: string }, close: () => void) => {
         const client = { phoneNumber, name, _id };
-        console.log({ client });
         const req = api.put<{ message: string }>('admin/clients/' + _id, {
             phoneNumber, name
         });
@@ -127,6 +126,27 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         })
         clearEditClient();
         close();
+    }
+
+    const postClientFile = ({ file, fileName, _id }: { file: File, fileName: string, _id: string }) => {
+        console.log("postClientFile")
+        console.log({ file, fileName })
+        const req = api.post<{ message: string }>('admin/clients/file/' + _id, {
+            file, fileName
+        }, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        toast.promise(req, {
+            loading: 'Subiendo archivo',
+            success: ({ data }) => {
+                console.log({ data })
+                Router.replace(Router.asPath);
+                return 'Actualizado con éxito'
+            },
+            error: 'Hubo un error'
+        })
     }
 
 
@@ -154,6 +174,8 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
             setEditClient,
             postClientUpdate,
             clearEditClient,
+            postClientFile,
+
             getLots
         }} >
             {children}

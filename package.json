@@ -31,6 +31,7 @@
     "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-drag-drop-files": "^2.3.10",
     "react-hot-toast": "^2.4.0",
     "swiper": "^8.4.4",
     "yup": "^0.32.11"
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cookie": "^0.5.1",
+    "@types/formidable": "^3.4.5",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/nodemailer": "^6.4.6",
     "sass": "^1.56.1",

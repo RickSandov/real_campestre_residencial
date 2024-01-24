@@ -9,14 +9,15 @@ import { PageTop } from 'components/admin/pageTop/PageTop';
 import { IDisplayClient } from 'interfaces';
 
 
-export const ClientsPage = ({ staticClients }: { staticClients: IDisplayClient[] }) => {
+export const ClientsPage = () => {
 
     const { getClients, clients } = useContext(AdminContext);
     const [createClient, setCreateClient] = useState(false);
 
-    // useEffect(() => {
-    //     getClients();
-    // }, [])
+    useEffect(() => {
+        getClients();
+        console.log({ clients })
+    }, [])
 
     return (
         <>

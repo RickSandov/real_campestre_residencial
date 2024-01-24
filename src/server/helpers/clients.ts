@@ -25,6 +25,7 @@ export async function getDisplayClients(
         _id,
       })
     );
+    console.log(displayClients);
     return displayClients;
   } catch (error) {
     console.log("getDisplayClients(): ", { error });

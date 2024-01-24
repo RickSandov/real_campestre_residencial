@@ -36,3 +36,28 @@
     }
   }
 }
+
+.file {
+  display: flex;
+  flex-direction: column;
+  .fileName {
+    margin: 3rem 0;
+  }
+  .button {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    button {
+      @include mixins.button(colors.$primary, colors.$type-c, white);
+      color: white;
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: rgb(171, 171, 171);
+        &:hover {
+          background-color: rgb(171, 171, 171);
+        }
+      }
+    }
+  }
+}

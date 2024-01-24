@@ -38,7 +38,7 @@ export const AdminPlanLot = ({ lot }: Props) => {
                 ref.current.appendChild(circle);
             }
         }
-    }, [lot.status])
+    }, [lot.status, lot.type])
 
     const onClick = (lot: ILot) => {
 
@@ -49,7 +49,7 @@ export const AdminPlanLot = ({ lot }: Props) => {
         setSelectedLot(lot);
     }
 
-    const colorClass = useMemo(() => (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c'), [lot.status]);
+    const colorClass = useMemo(() => (lot.type === lotType.a ? 'a' : lot.type === lotType.b ? 'b' : 'c'), [lot.status, lot.type]);
 
     return (
         <g className={`lot ${colorClass || ''} ${isSelected ? 'active' : ''}`} ref={ref} onClick={() => onClick(lot)}>
