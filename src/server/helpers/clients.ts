@@ -2,6 +2,7 @@ import { IClient, IDisplayClient, IUser, RoleType, roleType } from "interfaces";
 import mongoose from "mongoose";
 import { connect, disconnect } from "server/database";
 import { Client } from "server/models";
+import { getLotsByClientId } from "./lots";
 
 export async function getDisplayClients(
   user: IUser
@@ -25,7 +26,6 @@ export async function getDisplayClients(
         _id,
       })
     );
-    console.log(displayClients);
     return displayClients;
   } catch (error) {
     console.log("getDisplayClients(): ", { error });
@@ -47,14 +47,13 @@ export async function createClient({
     const { _id, dispName } = user;
     await connect();
     const newClient = new Client({
-      name,
+      name: name.toLowerCase(),
       phoneNumber,
       registeredByName: dispName,
       registeredBy: _id,
     });
     await newClient.save();
     await disconnect();
-    console.log({ newClient });
     return newClient;
   } catch (error) {
     await disconnect();
@@ -74,6 +73,15 @@ export async function getClient(id: string) {
     console.log("getClient(): ", { error });
     return null;
   }
+}
+
+export async function getClientWithLots(id: string) {
+  try {
+    const client = await getClient(id);
+    if (!client) return null;
+    const lots = await getLotsByClientId(client._id);
+    return { ...client.toObject(), lots };
+  } catch (error) {}
 }
 
 export async function editClient(
@@ -96,5 +104,31 @@ export async function editClient(
     console.log("editClient(): ", { error });
     await disconnect();
     return null;
+  }
+}
+
+export async function getClientsSearch(searchTerm: string) {
+  try {
+    await connect();
+    let clients: any[] = [];
+    const client = await getClient(searchTerm);
+    const lots = await getLotsByClientId(client?._id);
+    if (client) {
+      client.lots = lots;
+      clients.push(client);
+      return [...clients];
+    }
+    const phoneNumber = searchTerm.replace(/ /g, "");
+    clients = await Client.find({
+      phoneNumber: { $regex: `${phoneNumber}`, $options: "i" },
+    });
+    if (clients.length) return clients;
+    clients = await Client.find({
+      name: { $regex: `${searchTerm.toLowerCase()}`, $options: "i" },
+    });
+    return clients;
+  } catch (error) {
+    console.log({ error });
+    return [];
   }
 }

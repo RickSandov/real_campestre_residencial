@@ -13,7 +13,7 @@ import { AdminContext } from 'contexts/admin';
 export const AdminPlan = () => {
 
     // const [lots, setLots] = useState<ILot[]>([]);
-    const { getLots, lots } = useContext(AdminContext);
+    const { getLots, lots, selectedLot } = useContext(AdminContext);
     const [ref] = useAutoAnimate<HTMLDivElement>();
 
     useEffect(() => {
@@ -68,6 +68,10 @@ export const AdminPlan = () => {
                         Vendido
                     </li>
                 </ul>
+                <div className='absolute bottom-0 left-0 z-50 h-40 p-5 text-center bg-white rounded-tr-xl w-60' >
+                    <h4 className='text-lg leading-none font-body'>{selectedLot ? 'Terreno seleccionado' : 'Selecciona un terreno'}</h4>
+                    <p className='mt-4 font-bold text-center uppercase text-7xl text-primary'>{selectedLot?.section}{selectedLot?.num}</p>
+                </div>
             </motion.div>
         </section>
     )

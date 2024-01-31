@@ -9,6 +9,7 @@ export interface AdminState {
     lots: ILot[];
     selectedLot: ILot | null;
     clients: IDisplayClient[];
+    client: IClient | null;
     editClient: {
         client: IClient | null;
     }
@@ -20,6 +21,7 @@ export interface AdminState {
 
 const Admin_INITIAL_STATE: AdminState = {
     lots: [],
+    client: null,
     selectedLot: null,
     clients: [],
     editClient: {
@@ -160,6 +162,24 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         }
     }
 
+    const setClient = (client: IClient) => dispatch({
+        type: '[Admin] - set client',
+        payload: client
+    })
+
+    const getClient = (client: string) => {
+        try {
+            api.get<{ clients: IClient[] }>('admin/clients?search=' + client).then(res => {
+                setClient(res.data.clients[0])
+                console.log(res.data.clients[0])
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
     return (
         <AdminContext.Provider value={{
             ...state,
@@ -170,6 +190,8 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
             setClientsRoute,
             getClients,
             createClient,
+            setClient,
+            getClient,
 
             setEditClient,
             postClientUpdate,

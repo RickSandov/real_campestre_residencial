@@ -4,12 +4,19 @@ import { verifyToken } from "server/helpers/auth";
 import {
   createClient,
   editClient,
+  getClientsSearch,
   getDisplayClients,
 } from "server/helpers/clients";
 
 type Data =
   | {
-      clients: IDisplayClient[];
+      clients:
+        | IDisplayClient[]
+        | {
+            name: string;
+            phoneNumber: string;
+            _id: string;
+          }[];
     }
   | {
       error: string;
@@ -22,9 +29,23 @@ export default async function hanlder(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { method, cookies, body } = req;
+  const { method, cookies, body, query } = req;
 
   try {
+    if (query.search) {
+      const { search = "" } = query;
+      const clients = await getClientsSearch(search as string);
+      return res.status(200).json({
+        clients: clients.map(({ name, phoneNumber, _id }: any) => {
+          return {
+            name,
+            phoneNumber,
+            _id,
+          };
+        }),
+      });
+    }
+
     const user = await verifyToken(cookies.auth || "");
 
     if (!user)

@@ -14,6 +14,10 @@ export interface ContextProps {
         client: IClient | null;
     }
 
+    client: IClient | null;
+    getClient: (clientId: string) => void;
+    setClient: (client: IClient) => void;
+
     isLoading: boolean;
 
     // Methods

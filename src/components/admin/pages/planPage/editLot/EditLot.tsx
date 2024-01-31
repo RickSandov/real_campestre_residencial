@@ -18,6 +18,8 @@ export const EditLot = ({ cancel }: { cancel: () => void }) => {
     const onSubmit = (values: FormikValues, helpers: FormikHelpers<any>) => {
         // setIsLoading(true);
         const { price, status, type } = values;
+
+        // TODO: migrate to AdminContext methods.
         const req = api.put(`admin/lots/${_id}`, {
             _id, status, price, type
         })

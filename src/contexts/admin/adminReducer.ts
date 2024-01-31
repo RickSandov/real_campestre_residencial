@@ -20,6 +20,10 @@ type AdminActionType =
     }
   | {
       type: "[Admin] - clear client to edit";
+    }
+  | {
+      type: "[Admin] - set client";
+      payload: IClient;
     };
 
 export const adminReducer = (
@@ -38,6 +42,9 @@ export const adminReducer = (
         ...state,
         selectedLot: action.payload,
       };
+
+    case "[Admin] - set client":
+      return { ...state, client: action.payload };
 
     case "[Admin] - set is loading":
       return {

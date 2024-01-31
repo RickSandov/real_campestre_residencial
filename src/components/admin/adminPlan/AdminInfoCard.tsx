@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from 'utils/motion';
 import { AdminContext } from 'contexts/admin';
 import styles from './adminPlan.module.scss'
+import Link from 'next/link';
 
 const Item = ({ title, text, className }: { title: string; text: string; className?: string; }) => {
     return (
@@ -13,7 +14,7 @@ const Item = ({ title, text, className }: { title: string; text: string; classNa
     )
 }
 
-export const AdminInfoCard = ({ setEditLot }: { setEditLot: (value: boolean) => void }) => {
+export const AdminInfoCard = ({ setEditLot, setBuyer }: { setEditLot: (value: boolean) => void, setBuyer: (value: boolean) => void }) => {
     const { selectedLot } = useContext(AdminContext);
 
     return (
@@ -32,7 +33,7 @@ export const AdminInfoCard = ({ setEditLot }: { setEditLot: (value: boolean) => 
                 !selectedLot ? (
                     <h4>Selecciona un terreno para ver su información</h4>
                 ) : (() => {
-                    const { area, num, type, status, price, section } = selectedLot;
+                    const { area, num, type, status, price, section, buyer } = selectedLot;
                     // const sold = status !== statusType.available;
                     const statusMessage =
                         status === statusType.available ? 'Resumen del Terreno'
@@ -73,9 +74,21 @@ export const AdminInfoCard = ({ setEditLot }: { setEditLot: (value: boolean) => 
                                 text={status}
                             />
 
-                            <button className={styles.edit} onClick={() => setEditLot(true)} >
-                                Actualizar información
-                            </button>
+                            <div className='flex justify-end w-full gap-3 mt-10'>
+                                <button className={styles.edit} onClick={() => setEditLot(true)} >
+                                    Actualizar información
+                                </button>
+                                {!buyer ? <button className={styles.edit} onClick={() => setBuyer(true)} >
+                                    Registrar comprador
+                                </button> : (
+                                    <Link href={`/admin/clientes/${String(buyer)}`} passHref>
+                                        <a className={styles.edit} onClick={() => setBuyer(false)} >
+                                            Ver comprador
+                                        </a>
+                                    </Link>
+                                )}
+                            </div>
+
                         </>
                     )
                     return <Info />

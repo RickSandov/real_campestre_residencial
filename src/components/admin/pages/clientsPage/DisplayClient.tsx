@@ -15,7 +15,7 @@ export const DisplayClient = ({ client }: { client: IDisplayClient }) => {
 
     return (
         <div
-            className={styles.client}
+            className={`${styles.client} capitalize`}
             onClick={handleClick}
         >
             <h3>{name}</h3>

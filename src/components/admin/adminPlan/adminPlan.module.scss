@@ -156,6 +156,10 @@
   .edit {
     @include mixins.button(colors.$primary, colors.$primary-dark, white);
     color: white;
+    &:last-child {
+      @include mixins.button(colors.$type-c, colors.$primary-dark, white);
+      color: white;
+    }
     align-self: flex-end;
     margin-top: auto;
   }

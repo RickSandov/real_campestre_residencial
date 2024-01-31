@@ -59,7 +59,7 @@ export const EditClient = ({ close, client }: { close: () => void, client: IClie
                                 className={styles.form}
                                 onSubmit={handleSubmit}
                             >
-                                <h2>Editar cliente</h2>
+                                <h2 className='text-5xl font-bold'>Editar cliente</h2>
                                 <div className={styles.inputs}>
                                     <Input
                                         name="name"

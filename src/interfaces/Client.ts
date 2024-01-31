@@ -17,5 +17,5 @@ export interface IDisplayClient {
 export interface IClient extends IDisplayClient {
   registeredBy: string | Types.ObjectId;
   docs: Doc[];
-  reservedLots: string[] | Types.ObjectId[];
+  reservedLots: ILot[];
 }

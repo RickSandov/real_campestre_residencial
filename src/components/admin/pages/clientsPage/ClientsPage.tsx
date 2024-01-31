@@ -16,7 +16,6 @@ export const ClientsPage = () => {
 
     useEffect(() => {
         getClients();
-        console.log({ clients })
     }, [])
 
     return (
