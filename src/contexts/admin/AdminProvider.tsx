@@ -144,7 +144,10 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
                 close();
                 return 'Archivo subido con éxito'
             },
-            error: 'Hubo un error'
+            error: (error) => {
+                console.log({ error });
+                return 'Hubo un error'
+            }
         })
     }
 

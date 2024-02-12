@@ -27,13 +27,14 @@ export default async (req: any, res: any) => {
         .json({ error: "Revisa la información de la petición" });
     }
     const client = await getClient(id as string);
+    await connect();
     // const responseFromS3 = await uploadFile();
     // console.log({ responseFromS3 });
     const key =
       `${fileName}_${client.name}_${String(Date.now())}`.replace(/ /g, "-") +
       "." +
       (file as any).originalFilename.split(".")[1];
-    // const url = await getSignedURL(key);
+
     if (file) {
       try {
         const parsedFile = fs.createReadStream((file as any).filepath);
@@ -43,7 +44,6 @@ export default async (req: any, res: any) => {
           key,
           url,
         });
-        await connect();
         client.save();
         await disconnect();
       } catch (error) {
