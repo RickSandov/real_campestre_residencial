@@ -7,6 +7,7 @@ import { Formik, FormikHelpers, FormikValues, useFormikContext } from 'formik';
 import { Input } from 'components/input/Input';
 import { IClient, IDisplayClient } from 'interfaces';
 import { FileUploader } from 'react-drag-drop-files';
+import { EditDoc } from './edit-doc';
 
 
 export const EditClient = ({ close, client }: { close: () => void, client: IClient }) => {
@@ -16,8 +17,6 @@ export const EditClient = ({ close, client }: { close: () => void, client: IClie
     const handleChange = (file: File) => {
         setFile(file);
     };
-
-    console.log({ file })
 
     const validationSchema = Yup.object({
         phoneNumber: Yup.string().required('Campo obligatorio'),
@@ -34,8 +33,7 @@ export const EditClient = ({ close, client }: { close: () => void, client: IClie
         postClientUpdate(data, close);
     }
     const onFileSubmit = (values: FormikValues, helpers: FormikHelpers<any>) => {
-        console.log({ values, file });
-        postClientFile({ fileName: values.fileName, file: file as File, _id: client._id as string });
+        postClientFile({ fileName: values.fileName, file: file as File, _id: client._id as string }, close);
     }
 
     return (
@@ -82,7 +80,21 @@ export const EditClient = ({ close, client }: { close: () => void, client: IClie
                     }
                 }
             </Formik>
-            <h2>Documentos</h2>
+            <h2 className='mb-6 text-4xl font-bold'>Documentos</h2>
+            {
+                client.docs.length ? (
+                    <ul className='flex flex-wrap justify-start gap-4 mb-10 gap-y-5'>
+                        {
+                            client.docs.map((doc) => (
+                                <EditDoc key={doc.url} doc={doc} close={close} clientId={client._id as string} />
+                            ))
+                        }
+                    </ul>
+                ) : (
+                    <p className='text-center' >Aún no tiene documentos registrados</p>
+                )
+            }
+            <h2 className='mt-10 mb-4 text-3xl font-bold'>Agregar nuevo documento</h2>
             <FileUploader multiple={false} className={styles.fileUploader} name="file" handleChange={handleChange} label="Sube o arrastra un archivo" />
             <Formik
                 {

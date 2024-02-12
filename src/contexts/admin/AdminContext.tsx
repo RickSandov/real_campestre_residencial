@@ -31,7 +31,7 @@ export interface ContextProps {
     setEditClient: (client: IClient) => void;
     postClientUpdate: ({ phoneNumber, name, _id }: { phoneNumber: string, name: string, _id: string }, close: () => void) => void;
     clearEditClient: () => void;
-    postClientFile: ({ file, fileName, _id }: { file: File, fileName: string, _id: string }) => void;
+    postClientFile: ({ file, fileName, _id }: { file: File, fileName: string, _id: string }, close: () => void) => void;
 }
 
 export const AdminContext = createContext({} as ContextProps);

@@ -13,15 +13,15 @@ import { EditLot } from '../planPage/editLot/EditLot';
 
 
 export const ClientPage = ({ client, lots }: { client: IClient, lots: ILot[] }) => {
-    const { setClientsRoute, setEditClient, getClient } = useContext(AdminContext);
+    const { setClientsRoute, getClient } = useContext(AdminContext);
     const [isEditClient, setIsEditClient] = useState(false);
     const [editLot, setEditLot] = useState(false);
     const { _id, phoneNumber, name, docs, registeredByName } = client;
     const router = useRouter();
 
     useEffect(() => {
-        setClientsRoute(`clientes/${_id}`)
-    }, [])
+        setClientsRoute(`clientes/${_id}`);
+    }, [client.docs.length])
 
     const goBack = () => {
         setClientsRoute('clientes');
@@ -35,9 +35,8 @@ export const ClientPage = ({ client, lots }: { client: IClient, lots: ILot[] }) 
     const closeEditClient = () => {
         getClient(String(_id));
         setIsEditClient(false);
+        Router.replace(Router.asPath);
     };
-
-
 
     return (
         <>
@@ -79,13 +78,23 @@ export const ClientPage = ({ client, lots }: { client: IClient, lots: ILot[] }) 
             </div>
             <div className={styles.container}>
                 <div className={styles.docs}>
-                    <h3 className='text-4xl font-bold'>Documentos</h3>
+                    <h3 className='mb-6 text-4xl font-bold md:mb-10'>Documentos</h3>
                     {
-                        docs
-                            ?
-                            ''
-                            :
-                            <p className={styles.empty} >Aún no hay documentos</p>
+                        docs.length ? (
+                            <ul className='flex flex-wrap justify-start gap-4 gap-y-5'>
+                                {
+                                    docs.map(({ name, url }) => (
+                                        <li key={url} className='px-6 py-2 font-bold text-white transition-colors cursor-pointer bg-rblue hover:bg-slate-600 hover:text-slate-200'>
+                                            <a href={url} target="_blank" rel="noreferrer" >
+                                                {name}
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        ) : (
+                            <p className='text-center' >Aún no tiene documentos registrados</p>
+                        )
                     }
                 </div>
             </div>
@@ -108,7 +117,7 @@ export const ClientPage = ({ client, lots }: { client: IClient, lots: ILot[] }) 
 function ClientLot({ lot, setEditLot }: { lot: ILot, setEditLot: (value: boolean) => void }) {
 
     const { _id, section, num, type, area, price, status } = lot;
-    const { setSelectedLot, client, getClient } = useContext(AdminContext);
+    const { setSelectedLot } = useContext(AdminContext);
 
     return (
         <li
@@ -138,7 +147,6 @@ function ClientLot({ lot, setEditLot }: { lot: ILot, setEditLot: (value: boolean
                 <button
                     className='py-5 text-2xl text-white rounded-lg px-7 bg-primary'
                     onClick={() => {
-                        // getClient(String(client!._id));
                         setSelectedLot(lot);
                         setEditLot(true);
                     }}

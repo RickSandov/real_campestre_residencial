@@ -120,7 +120,6 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         toast.promise(req, {
             loading: 'Actualizando cliente',
             success: ({ data }) => {
-                console.log({ data })
                 Router.replace(Router.asPath);
                 return 'Actualizado con éxito'
             },
@@ -130,9 +129,7 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         close();
     }
 
-    const postClientFile = ({ file, fileName, _id }: { file: File, fileName: string, _id: string }) => {
-        console.log("postClientFile")
-        console.log({ file, fileName })
+    const postClientFile = ({ file, fileName, _id }: { file: File, fileName: string, _id: string }, close: () => void) => {
         const req = api.post<{ message: string }>('admin/clients/file/' + _id, {
             file, fileName
         }, {
@@ -143,9 +140,9 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         toast.promise(req, {
             loading: 'Subiendo archivo',
             success: ({ data }) => {
-                console.log({ data })
                 Router.replace(Router.asPath);
-                return 'Actualizado con éxito'
+                close();
+                return 'Archivo subido con éxito'
             },
             error: 'Hubo un error'
         })
@@ -167,11 +164,12 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
         payload: client
     })
 
-    const getClient = (client: string) => {
+    const getClient = async (client: string) => {
         try {
+            console.log('GEt client from admin provider', client);
             api.get<{ clients: IClient[] }>('admin/clients?search=' + client).then(res => {
-                setClient(res.data.clients[0])
-                console.log(res.data.clients[0])
+                const client = res.data.clients[0];
+                setClient(client);
             })
         } catch (error) {
             console.log(error)

@@ -1,8 +1,16 @@
-import { IClient, IDisplayClient, IUser, RoleType, roleType } from "interfaces";
-import mongoose from "mongoose";
+import {
+  Doc,
+  IClient,
+  IDisplayClient,
+  IUser,
+  RoleType,
+  roleType,
+} from "interfaces";
+import mongoose, { Model } from "mongoose";
 import { connect, disconnect } from "server/database";
 import { Client } from "server/models";
 import { getLotsByClientId } from "./lots";
+import { uploadFile } from "server/lib/s3";
 
 export async function getDisplayClients(
   user: IUser
@@ -131,4 +139,19 @@ export async function getClientsSearch(searchTerm: string) {
     console.log({ error });
     return [];
   }
+}
+
+export async function clientAddDoc(
+  doc: { key: string; name: string },
+  id: string
+) {
+  try {
+    await connect();
+    const { key, name } = doc;
+    const client = await getClient(id);
+    // const signedUrl = await getSignedURL("");
+
+    await disconnect();
+    return client;
+  } catch (error) {}
 }

@@ -13,7 +13,7 @@
 .container {
   @include mixins.card;
   width: 100%;
-  min-height: 20rem;
+  min-height: 30rem;
   margin: 1rem 0;
   padding: 3rem;
 
@@ -26,7 +26,6 @@
 .docs {
   h3 {
     font-family: variables.$font;
-    margin-bottom: 4rem;
   }
 
   .empty {
