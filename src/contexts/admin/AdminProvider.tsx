@@ -169,7 +169,6 @@ export const AdminProvider: FC<PropsWithChildren> = ({ children }) => {
 
     const getClient = async (client: string) => {
         try {
-            console.log('GEt client from admin provider', client);
             api.get<{ clients: IClient[] }>('admin/clients?search=' + client).then(res => {
                 const client = res.data.clients[0];
                 setClient(client);

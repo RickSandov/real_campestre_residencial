@@ -33,9 +33,9 @@ export default async function handler(
       const { key, clientId } = req.query;
       const client = await getClient(clientId as string);
       await deleteFile(key as string);
+      await connect();
       const { docs } = client;
       client.docs = docs.filter((doc: any) => doc.key !== key);
-      await connect();
       await client.save();
       await disconnect();
       return res.status(200).json({
